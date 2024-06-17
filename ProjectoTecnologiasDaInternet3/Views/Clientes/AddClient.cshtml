@@ -1,0 +1,73 @@
+﻿@model ProjectoTecnologiasDaInternet3.Models.Client
+
+@{
+    String[] roles = new string[] { "Admin", "Dad", "Mom" };
+    SelectList list_of_roles = new SelectList(roles);
+    ViewBag.Title = "AddClient";
+}
+
+<h2>Client</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h4>AddClient</h4>
+    <div class="form-horizontal">
+        <div>@ViewBag.Msg</div>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
+            <input type="password" id="password-input" class="form-control" />
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 mb-3">
+                @Html.DropDownListFor(model => model.Role,
+                                     list_of_roles as SelectList,
+                                     new { htmlAttributes = new { @class = "form-select" } })
+
+                @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Clients", "Clientes")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@section HidePassword {
+    <script>
+        $(document).ready(function () {
+            $('#password-input').on('input', function () {
+                var password = $(this).val();
+                var maskedPassword = '*'.repeat(password.length); // Replace '*' with any character you want
+
+                $('#password-display').text(maskedPassword);
+            });
+        });
+    </script>
+}
