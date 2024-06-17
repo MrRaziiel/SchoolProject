@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 using ProjectoTecnologiasDaInternet3.Models;
+using ProjectoTecnologiasDaInternet3.Helpers;
 
 namespace ProjectoTecnologiasDaInternet3.Controllers
 {
@@ -84,12 +85,14 @@ namespace ProjectoTecnologiasDaInternet3.Controllers
             List<Client> clients = bd.clients;
             
             var client = bd.clients.Where(c => c.Id == std.Id).FirstOrDefault();
-            var indexClinet = bd.clients.IndexOf(client);
-            clients.Insert(indexClinet, client);
+            changingAnyObjects.UpdatePropertyValues(std, client);
             bd.SaveFileClient();
 
             return RedirectToAction("Clients", "Clientes", new { msg = "Edit with success!" });
         }
 
+
+
+        
     }
 }

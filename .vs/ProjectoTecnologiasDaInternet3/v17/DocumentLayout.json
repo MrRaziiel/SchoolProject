@@ -3,27 +3,35 @@
   "WorkspaceRootPath": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|d:\\faculdade\\tecnologias da internet 3\\schoolproject\\projectotecnologiasdainternet3\\helpers\\changinganyobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|solutionrelative:projectotecnologiasdainternet3\\helpers\\changinganyobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|d:\\faculdade\\tecnologias da internet 3\\schoolproject\\projectotecnologiasdainternet3\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|solutionrelative:projectotecnologiasdainternet3\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\ProjectoTecnologiasDaInternet3\\App_Data\\Clientes.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ProjectoTecnologiasDaInternet3\\App_Data\\Clientes.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\projectotecnologiasdainternet3\\views\\clientes\\addclient.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|solutionrelative:projectotecnologiasdainternet3\\views\\clientes\\addclient.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\projectotecnologiasdainternet3\\views\\clientes\\editclient.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|solutionrelative:projectotecnologiasdainternet3\\views\\clientes\\editclient.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|d:\\faculdade\\tecnologias da internet 3\\schoolproject\\projectotecnologiasdainternet3\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|solutionrelative:projectotecnologiasdainternet3\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|d:\\faculdade\\tecnologias da internet 3\\schoolproject\\projectotecnologiasdainternet3\\views\\clientes\\editclient.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|solutionrelative:projectotecnologiasdainternet3\\views\\clientes\\editclient.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|d:\\faculdade\\tecnologias da internet 3\\schoolproject\\projectotecnologiasdainternet3\\views\\clientes\\addclient.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|solutionrelative:projectotecnologiasdainternet3\\views\\clientes\\addclient.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|d:\\faculdade\\tecnologias da internet 3\\schoolproject\\projectotecnologiasdainternet3\\models\\bd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\projectotecnologiasdainternet3\\models\\bd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|solutionrelative:projectotecnologiasdainternet3\\models\\bd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|d:\\faculdade\\tecnologias da internet 3\\schoolproject\\projectotecnologiasdainternet3\\app_data\\clientes.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|solutionrelative:projectotecnologiasdainternet3\\app_data\\clientes.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|d:\\faculdade\\tecnologias da internet 3\\schoolproject\\projectotecnologiasdainternet3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\projectotecnologiasdainternet3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0A705E2D-90E8-4718-B85D-5A5699B976A3}|ProjectoTecnologiasDaInternet3\\ProjectoTecnologiasDaInternet3.csproj|solutionrelative:projectotecnologiasdainternet3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -34,24 +42,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "changingAnyObjects.cs",
+              "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\ProjectoTecnologiasDaInternet3\\Helpers\\changingAnyObjects.cs",
+              "RelativeDocumentMoniker": "ProjectoTecnologiasDaInternet3\\Helpers\\changingAnyObjects.cs",
+              "ToolTip": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\ProjectoTecnologiasDaInternet3\\Helpers\\changingAnyObjects.cs",
+              "RelativeToolTip": "ProjectoTecnologiasDaInternet3\\Helpers\\changingAnyObjects.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T23:50:55.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Client.cs",
+              "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\ProjectoTecnologiasDaInternet3\\Models\\Client.cs",
+              "RelativeDocumentMoniker": "ProjectoTecnologiasDaInternet3\\Models\\Client.cs",
+              "ToolTip": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\ProjectoTecnologiasDaInternet3\\Models\\Client.cs",
+              "RelativeToolTip": "ProjectoTecnologiasDaInternet3\\Models\\Client.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T23:30:33.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Clientes.json",
               "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\ProjectoTecnologiasDaInternet3\\App_Data\\Clientes.json",
               "RelativeDocumentMoniker": "ProjectoTecnologiasDaInternet3\\App_Data\\Clientes.json",
               "ToolTip": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\ProjectoTecnologiasDaInternet3\\App_Data\\Clientes.json",
               "RelativeToolTip": "ProjectoTecnologiasDaInternet3\\App_Data\\Clientes.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAC8AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-06-17T14:52:19.381Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "AddClient.cshtml",
               "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\ProjectoTecnologiasDaInternet3\\Views\\Clientes\\AddClient.cshtml",
               "RelativeDocumentMoniker": "ProjectoTecnologiasDaInternet3\\Views\\Clientes\\AddClient.cshtml",
@@ -64,33 +98,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "EditClient.cshtml",
               "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\ProjectoTecnologiasDaInternet3\\Views\\Clientes\\EditClient.cshtml",
               "RelativeDocumentMoniker": "ProjectoTecnologiasDaInternet3\\Views\\Clientes\\EditClient.cshtml",
               "ToolTip": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\ProjectoTecnologiasDaInternet3\\Views\\Clientes\\EditClient.cshtml",
               "RelativeToolTip": "ProjectoTecnologiasDaInternet3\\Views\\Clientes\\EditClient.cshtml",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAAEUAAAABAAAA",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAADUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-17T14:27:54.083Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "ClientesController.cs",
               "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\ProjectoTecnologiasDaInternet3\\Controllers\\ClientesController.cs",
               "RelativeDocumentMoniker": "ProjectoTecnologiasDaInternet3\\Controllers\\ClientesController.cs",
               "ToolTip": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\ProjectoTecnologiasDaInternet3\\Controllers\\ClientesController.cs",
               "RelativeToolTip": "ProjectoTecnologiasDaInternet3\\Controllers\\ClientesController.cs",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAlwF4AAAABAAAA",
+              "ViewState": "AQIAADgAAAAAAAAAAAAwwE8AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-17T14:24:24.704Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "BD.cs",
               "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\ProjectoTecnologiasDaInternet3\\Models\\BD.cs",
               "RelativeDocumentMoniker": "ProjectoTecnologiasDaInternet3\\Models\\BD.cs",
@@ -103,7 +137,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\ProjectoTecnologiasDaInternet3\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ProjectoTecnologiasDaInternet3\\Views\\Shared\\_Layout.cshtml",
@@ -111,8 +145,7 @@
               "RelativeToolTip": "ProjectoTecnologiasDaInternet3\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AQIAABIAAAAAAAAAAAAAAB0AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-17T02:54:13.119Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-17T02:54:13.119Z"
             }
           ]
         }
