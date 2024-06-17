@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,8 +27,8 @@ namespace ProjectoTecnologiasDaInternet3.Controllers
             {
 
                 bd.clients.Add(novo);
-                bd.SaveFile();
-                return RedirectToAction("Clients", "Clientes", new { msg = "Registo Inserido com sucesso" });
+                bd.SaveFileClient();
+                return RedirectToAction("Clients", "Clientes", new { msg = "Client Added" });
             }
             else
             {
@@ -42,7 +43,7 @@ namespace ProjectoTecnologiasDaInternet3.Controllers
             if (droped != null)
             {
                 bd.clients.Remove(droped);
-                bd.SaveFile();
+                bd.SaveFileClient();
                 return Json(new { msg = "ok" }, JsonRequestBehavior.AllowGet);
             }
             else
@@ -64,8 +65,8 @@ namespace ProjectoTecnologiasDaInternet3.Controllers
         public ActionResult Client(String msg)
         {
             ViewBag.msg = msg;
-            List<Client> client = bd.clients;
-            return View(client);
+            List<Client> clients = bd.clients;
+            return View(clients);
         }
 
 
@@ -81,10 +82,13 @@ namespace ProjectoTecnologiasDaInternet3.Controllers
         public ActionResult EditClient(Client std)
         {
             List<Client> clients = bd.clients;
+            
             var client = bd.clients.Where(c => c.Id == std.Id).FirstOrDefault();
-            clients.Remove(client);
+            var indexClinet = bd.clients.IndexOf(client);
+            clients.Insert(indexClinet, client);
+            bd.SaveFileClient();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Clients", "Clientes", new { msg = "Edit with success!" });
         }
 
     }

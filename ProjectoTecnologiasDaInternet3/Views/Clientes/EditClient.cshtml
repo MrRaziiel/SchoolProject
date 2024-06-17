@@ -1,6 +1,8 @@
 ﻿@model ProjectoTecnologiasDaInternet3.Models.Client
 
 @{
+    String[] roles = new string[] { "Admin", "Dad", "Mom" };
+    SelectList list_of_roles = new SelectList(roles);
     ViewBag.Title = "EditClient";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -10,7 +12,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Client</h4>
         <hr />
@@ -26,17 +28,19 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10 mb-3">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", id = "password-input", type = "password" } })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Role, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-10 mb-3">
+                @Html.DropDownListFor(model => model.Role,
+                                     list_of_roles as SelectList,
+                                     new { htmlAttributes = new { @class = "form-select" } })
+
                 @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -52,3 +56,15 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+@section HidePassword {
+    <script>
+        $(document).ready(function () {
+            $('#password-input').on('input', function () {
+                var password = $(this).val();
+                var maskedPassword = '*'.repeat(password.length); // Replace '*' with any character you want
+
+                $('#password-display').text(maskedPassword);
+            });
+        });
+    </script>
+}

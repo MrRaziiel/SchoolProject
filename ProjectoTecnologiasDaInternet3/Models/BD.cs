@@ -15,25 +15,25 @@ namespace ProjectoTecnologiasDaInternet3.Models
 
             public BD()
             {
-                LoadFile();
+            LoadFileClient();
             }
 
-            public void SaveFile()
+            public void SaveFileClient()
             {
                 HttpServerUtility server = HttpContext.Current.Server;
                 DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(List<Client>));
-                FileStream fs = new FileStream(server.MapPath("~/App_Data/dados.json"), FileMode.Create, FileAccess.Write);
+                FileStream fs = new FileStream(server.MapPath("~/App_Data/Clientes.json"), FileMode.Create, FileAccess.Write);
                 js.WriteObject(fs, clients);
                 fs.Close();
             }
 
 
-            public void LoadFile()
+            public void LoadFileClient()
             {
                 HttpServerUtility server = HttpContext.Current.Server;
                 DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(List<Client>));
-                string path = server.MapPath("~/App_Data/dados.json");
-                if (System.IO.File.Exists(path))
+                string path = server.MapPath("~/App_Data/Clientes.json");
+                if (System.IO.File.Exists(path) && (new FileInfo(path).Length != 0))
                 {
                     FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
                     clients = (List<Client>)js.ReadObject(fs);
@@ -46,14 +46,20 @@ namespace ProjectoTecnologiasDaInternet3.Models
 
 
             }
-            //void createList()
-            //{
-            //    clients = new List<Client>() {
-            //      new Client(){ Id=1,Name="Ruben Amaro", Role = "Admin"},
-            //      new Client(){ Id=2,Name="Anabela", Role = "Mom"},
-            //      new Client(){ Id=3,Name="Carlos", Role = "Dad"}
-            //    };
-            //}
 
-    }
+            public void RemoveClient(int? id)
+            {
+            var client = clients.Where(c => c.Id == id).FirstOrDefault();
+            if (client != null) 
+            {
+                clients.Remove(client);
+                SaveFileClient();
+            }
+            
+
+        }
+
+
+
+        }
 }
