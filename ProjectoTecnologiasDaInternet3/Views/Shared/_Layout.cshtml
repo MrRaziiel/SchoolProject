@@ -25,7 +25,7 @@
                             Client Area
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("All Clients", "Clients", "Clientes", new { area = "" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("All Clients", "ListOfClients", "Clients", new { area = "" }, new { @class = "dropdown-item" })</li>
                         </ul>
                     </li>
 
@@ -34,8 +34,8 @@
                             Admin Area
                         </a>
                         <ul class="dropdown-menu">
-                            <il>@Html.ActionLink("All Clients", "Clients", "Clientes", new { area = "" }, new { @class = "dropdown-item" })</il>
-                            <il>@Html.ActionLink("Creat Client", "AddClient", "Clientes", new { area = "" }, new { @class = "dropdown-item" })</il>
+                            <il>@Html.ActionLink("All Clients", "ListOfClients", "Clients", new { area = "" }, new { @class = "dropdown-item" })</il>
+                            <il>@Html.ActionLink("Create Client", "AddClient", "Clientes", new { area = "" }, new { @class = "dropdown-item" })</il>
                         </ul>
                     </li>
 
@@ -48,7 +48,7 @@
                     <button>@Html.ActionLink("Login", "Login", "Clientes", new { area = "" }, new { @class = "nav-link" })</button>
                 </div>
             </div>
-        </div>
+        </div>>>
     </nav>
     <div class="container body-content">
         @RenderBody()

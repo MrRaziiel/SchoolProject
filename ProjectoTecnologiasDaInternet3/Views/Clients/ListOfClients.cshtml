@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ProjectoTecnologiasDaInternet3.Models.Client>
 
 @{
-    ViewBag.Title = "Clients";
+    ViewBag.Title = "ListOfClients";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="~/Content/font-awesome.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "EditClient", "Clientes", new { id = item.Id }, null) |
+                    @Html.ActionLink("Edit", "EditClient", "Clients", new { id = item.Id }, null) |
                     @Html.ActionLink("DelAjax", null, null, new { id = item.Id, name = "del", @class = "fa fa-trash text-danger" })
                 </td>
             </tr>
@@ -69,7 +69,7 @@ else
                 let r = confirm("You really want to permanently delete a client?");
                 if (!r) return false;
                 $.ajax({
-                    url: '@Url.Action("DeleteAjax", "Clientes")',
+                    url: '@Url.Action("DeleteAjax", "Clients")',
                     type: "post",
                     dataType: "json",
                     data: { Id: ID },

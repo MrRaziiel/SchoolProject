@@ -290,9 +290,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Clientes\Clients.cshtml" />
-    <Content Include="Views\Clientes\DeleteClient.cshtml" />
-    <Content Include="Views\Clientes\AddClient.cshtml" />
+    <Content Include="Views\Clients\ListOfClients.cshtml" />
+    <Content Include="Views\Clients\DeleteClient_.cshtml" />
+    <Content Include="Views\Clients\AddClient_.cshtml" />
+    <Content Include="Views\Clients\EditClient_.cshtml" />
     <Content Include="Views\Clientes\EditClient.cshtml" />
   </ItemGroup>
   <ItemGroup />

@@ -1,24 +1,24 @@
-﻿﻿@model ProjectoTecnologiasDaInternet3.Models.Client
+﻿@model ProjectoTecnologiasDaInternet3.Models.Client
 
 @{
     String[] roles = new string[] { "Admin", "Dad", "Mom" };
     SelectList list_of_roles = new SelectList(roles);
-    ViewBag.Title = "EditClient";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "AddClient";
 }
 
-<h2>EditClient</h2>
+<h2>Client</h2>
+
+
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
+    <h4>AddClient</h4>
     <div class="form-horizontal">
-        <h4>Client</h4>
+        <div>@ViewBag.Msg</div>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
-
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -33,7 +33,6 @@
                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", id = "password-input", type = "password" } })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10 mb-3">
@@ -45,17 +44,23 @@
             </div>
         </div>
 
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "ListOfClients", "Clients")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
 @section HidePassword {
     <script>
         $(document).ready(function () {

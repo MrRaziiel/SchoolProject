@@ -29,7 +29,7 @@ namespace ProjectoTecnologiasDaInternet3.Controllers
 
                 bd.clients.Add(novo);
                 bd.SaveFileClient();
-                return RedirectToAction("Clients", "Clientes", new { msg = "Client Added" });
+                return RedirectToAction("ListOfClients", "Clients", new { msg = "Client Added" });
             }
             else
             {
@@ -88,7 +88,7 @@ namespace ProjectoTecnologiasDaInternet3.Controllers
             changingAnyObjects.UpdatePropertyValues(std, client);
             bd.SaveFileClient();
 
-            return RedirectToAction("Clients", "Clientes", new { msg = "Edit with success!" });
+            return RedirectToAction("ListOfClients", "Clients", new { msg = "Edit with success!" });
         }
 
 
