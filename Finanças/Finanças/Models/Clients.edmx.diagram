@@ -12,6 +12,7 @@
         <AssociationConnector Association="clientesBDModel.fkclientsclients" ManuallyRouted="false" />
         <AssociationConnector Association="clientesBDModel.FK__details__idfatur__72C60C4A" ManuallyRouted="false" />
         <EntityTypeShape EntityType="clientesBDModel.v_clients" Width="1.5" PointX="8.5" PointY="1.5" />
+        <EntityTypeShape EntityType="clientesBDModel.v_expense" Width="1.5" PointX="5.625" PointY="4" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

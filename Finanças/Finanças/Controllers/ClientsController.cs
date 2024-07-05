@@ -69,6 +69,8 @@ namespace Finanças.Controllers
 
             using (clientesBDEntities3 db = new clientesBDEntities3())
             {
+                string[] roles = new string[] { "Admin", "Dad", "Mom" };
+                ViewBag.roles = new SelectList(roles);
                 client client_to_edit = db.clients.Find(id);
                 if (client_to_edit != null) return View(client_to_edit);
                 return new EmptyResult();

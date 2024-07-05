@@ -4,69 +4,68 @@
     ViewBag.Title = "Add_client";
 }
 
-<h2>Add Client</h2>
+<h2>NEW CLIENT</h2>
 
 @using (Html.BeginForm("Add_client", "Clients", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>client</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.firstName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+        <div class="form-group mb-2">
+            <b>FIRST NAME</b>
+            <div class="col-md-10 mt-2">
                 @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.lastName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+        <div class="form-group mb-2">
+            <b>LAST NAME</b>
+            <div class="col-md-10 mt-2">
                 @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.PasswordFor(model => model.password, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <div class="form-group mb-2">
+            <b>PASSWORD</b>
+                <div class="col-md-10 mt-2">
+                    @Html.PasswordFor(model => model.password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                </div>
+</div>
+
+        <div class="form-group mb-2">
+            <b>ROLE</b>
+                <div class="col-md-10 mt-2">
+                    @Html.DropDownListFor(model => model.role, ViewBag.roles as SelectList, new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.role, "", new { @class = "text-danger" })
+                </div>
+</div>
+
+        <div class="form-group mb-2">
+            <b>BIRTH DAY</b>
+                <div class="col-md-10 mt-2">
+                    @Html.TextBoxFor(model => model.datanasc, new { @class = "form-control", type = "date" })
+                    @Html.ValidationMessageFor(model => model.datanasc, "", new { @class = "text-danger" })
+                </div>
+</div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.role, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.role, ViewBag.roles as SelectList, new { @class = "form-select" })
-                @Html.ValidationMessageFor(model => model.role, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.datanasc, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.datanasc, new { @class = "form-control", type = "date" })
-                @Html.ValidationMessageFor(model => model.datanasc, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.fotopath, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="file" id="fich" name="fich" class="form-control" onchange="previewImage(event)" />
-                @Html.ValidationMessageFor(model => model.fotopath, "", new { @class = "text-danger" })
-                <!-- Image preview -->
-            <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 40em; height: auto; margin-top: 10px;" />
-            </div>
+            <b>PHOTO</b>
+                <div class="col-md-10 mt-2">
+                    <input type="file" id="fich" name="fich" class="form-control" onchange="previewImage(event)" />
+                    @Html.ValidationMessageFor(model => model.fotopath, "", new { @class = "text-danger client-photo" })
+                    <!-- Image preview -->
+                    <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 40em; height: auto; margin-top: 10px;" />
+                </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success mt-2" />
+                <input type="submit" value="CREATE" class="btn btn-success mt-2" />
             </div>
         </div>
     </div>
@@ -96,3 +95,25 @@
         }
     </script>
 }
+<style>
+    .client-photo img {
+        width: 80em;
+        height: 80em;
+    }
+
+    /*    .actions {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }*/
+    .gap-2 {
+        gap: 10px;
+    }
+
+    .gradient-bg {
+        background: linear-gradient(to right, #00c6ff, #0072ff); /* Adjust colors and direction as needed */
+        color: white; /* Optional: text color */
+        padding: 20px; /* Optional: padding inside the div */
+    }
+</style>
+

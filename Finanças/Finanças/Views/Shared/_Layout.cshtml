@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary">
         <div class="container">
             @Html.ActionLink("EXPENSES", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
@@ -17,13 +17,11 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                <ul class="navbar-nav flex-grow-1 text-black">
+                    <li>@Html.ActionLink("CONTACTS", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                            Client Area
+                            CLIENT
                         </a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Client Detail", "List_of_clients", "Clients", new { area = "" }, new { @class = "dropdown-item" })</li>
@@ -32,7 +30,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                            Admin Area
+                            ADMIN
                         </a>
                         <ul class="dropdown-menu">
                             <il>@Html.ActionLink("All Clients", "List_of_clients", "Clients", new { area = "" }, new { @class = "dropdown-item" })</il>
@@ -64,5 +62,31 @@
     @RenderSection("HidePassword", required: false)
     @RenderSection("PreviewImage", required: false)
 
+
 </body>
+
+
 </html>
+<style>
+    .navbar-nav {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+
+    }
+
+    .nav-item {
+        margin: 0 1px;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: black; /* Set text color to black */
+        font-size: 20px; /* Adjust as needed */
+    }
+
+        .nav-link:hover {
+            color: darkgray; /* Optional: change color on hover */
+        }
+</style>

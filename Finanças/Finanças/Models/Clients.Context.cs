@@ -29,5 +29,6 @@ namespace Finanças.Models
         public virtual DbSet<detail> details { get; set; }
         public virtual DbSet<expense> expenses { get; set; }
         public virtual DbSet<v_clients> v_clients { get; set; }
+        public virtual DbSet<v_expense> v_expense { get; set; }
     }
 }

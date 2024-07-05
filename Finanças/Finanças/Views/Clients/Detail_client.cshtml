@@ -4,61 +4,66 @@
     ViewBag.Title = "Detail_client";
 }
 
-<h2>Detail of @Url.Content(Model.firstName).ToString().ToUpper()  @Html.DisplayFor(model => model.lastName).ToString().ToUpper()</h2>
+<h2>(DETAILS OF @Url.Content(Model.firstName).ToString().ToUpper() @Html.DisplayFor(model => model.lastName).ToString().ToUpper()</h2>
 
-<div class="container">
-    <div class="row">
-        <hr />
-        <dl class="col">
-            <dt>
-                @if (Model.fotopath == null)
-                {
-                    <img style="width: 400px; border-radius: 50%;" src="@Url.Content("~/Photos/nocar.png" )" />
+<div class="container ">
+    <hr />
+    <div class="gradient-bg">
+        <div class="row">
+            <dl class="col ">
+                <dt class="client-photo">
+                    @if (Model.fotopath == null)
+                    {
+                        <img src="@Url.Content("~/Photos/nocar.png" )" />
 
-                }
-                else
-                {
-                    <img style="width: 400px; border-radius: 50%; " src="@Url.Content("~/Photos/" +  Model.fotopath )" />
+                    }
+                    else
+                    {
+                        <img src="@Url.Content("~/Photos/" +  Model.fotopath )" />
 
-                }
-            </dt>
+                    }
+                </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.password)
-            </dt>
+            </dl>
+            <dl class="col-7">
 
-            <dd>
-                @Html.DisplayFor(model => model.password)
-            </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.role)
+                </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.role)
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.role)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.role)
-            </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.datanasc)
+                </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.datanasc)
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.datanasc)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.datanasc)
-            </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.age)
+                </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.age)
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.age)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.age)
-            </dd>
+            </dl>
 
-        </dl>
+        </div>
+        <div class="row">
 
-        <div class="col">
-                <h3 style="text-align:center">FATURAS</h3>
+            <div class="col">
+                <h3 style="text-align:center">EXPENSES</h3>
+            </div>
+            <p>
+                <a href="@Url.Action("Add_Expenses", "Expenses")" class="btn btn-primary">
+                   NEW EXPENSE
+                </a>
+            </p>
         </div>
     </div>
 </div>
@@ -66,3 +71,17 @@
     @Html.ActionLink("Edit", "Edit_client", new { id = Model.idcli }) |
     @Html.ActionLink("Back to List", "List_of_clients")
 </p>
+<style>
+    .client-photo img {
+        width: 25em;
+        height: 25em;
+        border-radius: 75%;
+    }
+
+
+
+    .gradient-bg {
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        padding: 20px;
+    }
+</style>

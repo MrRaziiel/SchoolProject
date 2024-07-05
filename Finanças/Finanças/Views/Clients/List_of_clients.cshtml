@@ -7,44 +7,47 @@
 <h2>LIST OF CLIENTS</h2>
 
 <h3 class="text-danger">@ViewBag.msg</h3>
-<p>
-    @Html.ActionLink("Create New", "Add_client")
-</p>
 
+
+<p>
+    <a href="@Url.Action("Add_client", "Clients")" class="btn btn-primary">
+        NEW CLIENT
+    </a>
+</p>
 <div class="clients-grid row">
     @foreach (var item in Model)
     {
-        <div class="client-item col-md-6 col-lg-4 mb-4">
-            <div class="card">
+        <div class="client-item col-md-6 col-lg-4 mb-4 ">
+            <div class="card gradient-bg">
                 <div class="card-body">
                     <table class="table table-borderless">
                         <tr>
-                            <th>@Html.DisplayNameFor(model => model.idcli)</th>
-                            <td>@Html.DisplayFor(modelItem => item.idcli)</td>
+                            <th>ID CLIENT:</th>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.idcli)</td>
                         </tr>
                         <tr>
-                            <th>@Html.DisplayNameFor(model => model.firstName)</th>
-                            <td>@Html.DisplayFor(modelItem => item.firstName)</td>
+                            <th>FIRST NAME:</th>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.firstName)</td>
                         </tr>
                         <tr>
-                            <th>@Html.DisplayNameFor(model => model.lastName)</th>
-                            <td>@Html.DisplayFor(modelItem => item.lastName)</td>
+                            <th>LAST NAME:</th>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.lastName)</td>
                         </tr>
                         <tr>
-                            <th>@Html.DisplayNameFor(model => model.role)</th>
-                            <td>@Html.DisplayFor(modelItem => item.role)</td>
+                            <th>ROLE:</th>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.role)</td>
                         </tr>
                         <tr>
-                            <th>@Html.DisplayNameFor(model => model.datanasc)</th>
-                            <td>@Html.DisplayFor(modelItem => item.datanasc)</td>
+                            <th>BIRTH DAY:</th>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.datanasc)</td>
                         </tr>
                         <tr>
-                            <th>@Html.DisplayNameFor(model => model.age)</th>
-                            <td>@Html.DisplayFor(modelItem => item.age)</td>
+                            <th>AGE:</th>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.age)</td>
                         </tr>
                         <tr>
-                            <th>@Html.DisplayNameFor(model => model.fotopath)</th>
-                            <td class="client-photo">
+                            <th>PHOTO:</th>
+                            <td class="client-photo text-center">
                                 @if (item.fotopath == null)
                                 {
                                     <img src="@Url.Content("~/Photos/No_image.png")" class="img-fluid" />
@@ -69,20 +72,19 @@
             </div>
         </div>
     }
-    <div>
-        @Html.ActionLink("Back to List", "List_of_clients", "Clients")
-    </div>
+
+
 </div>
 
 @section deleteClient
 {
     <script>
         $(() => {
+            // Single client delete handler
             $("[name='del']").click((evt) => {
-                evt = evt ? evt : window.event;
                 evt.preventDefault();
                 let ID = evt.target.id;
-                let r = confirm("You really want to permanently delete a client?");
+                let r = confirm("Do you really want to permanently delete this client?");
                 if (!r) return false;
                 $.ajax({
                     url: '@Url.Action("Delete_client", "Clients")',
@@ -92,7 +94,7 @@
                     success: function (data) {
                         console.log(data.msg);
                         if (data.msg == "ok") {
-                            $(evt.target).closest("tr").remove();
+                            $(evt.target).closest(".client-item").remove();
                         }
                         $("#tv").html(data.msg);
                     },
@@ -104,13 +106,16 @@
         });
     </script>
 }
+
+
+
 <style>
     .client-photo img {
-        width: 70px;
-        height: 70px;
+        width: 10em;
+        height: 10em;
     }
 
-/*    .actions {
+    /*    .actions {
         display: flex;
         justify-content: center;
         gap: 10px;
@@ -118,4 +123,11 @@
     .gap-2 {
         gap: 10px;
     }
+
+    .gradient-bg {
+        background: linear-gradient(to right, #00c6ff, #0072ff); /* Adjust colors and direction as needed */
+        color: white; /* Optional: text color */
+        padding: 20px; /* Optional: padding inside the div */
+    }
 </style>
+

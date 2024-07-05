@@ -92,6 +92,7 @@
       <End Role="details" EntitySet="details" />
     </AssociationSet>
     <EntitySet Name="v_clients" EntityType="clientesBDModel.v_clients" />
+    <EntitySet Name="v_expense" EntityType="clientesBDModel.v_expense" />
   </EntityContainer>
   <EntityType Name="v_clients">
     <Key>
@@ -107,5 +108,17 @@
     <Property Name="age" Type="Decimal" Precision="18" Scale="6" />
     <Property Name="idFatura" Type="Int32" />
     <Property Name="fotopath" Type="String" MaxLength="350" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_expense">
+    <Key>
+      <PropertyRef Name="idfatura" />
+    </Key>
+    <Property Name="idfatura" Type="Int32" Nullable="false" />
+    <Property Name="idcli" Type="Int32" />
+    <Property Name="dataFirstPayment" Type="DateTime" Precision="0" />
+    <Property Name="type_Of_Expense" Type="Int32" />
+    <Property Name="type_Of_Payment" Type="Int32" />
+    <Property Name="date_payment" Type="DateTime" Precision="0" />
+    <Property Name="value_Of_Paymente" Type="Decimal" Precision="10" Scale="2" />
   </EntityType>
 </Schema>

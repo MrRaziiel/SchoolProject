@@ -172,6 +172,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\ExpensesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -206,6 +207,9 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\v_clients.cs">
+      <DependentUpon>Clients.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_expense.cs">
       <DependentUpon>Clients.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -308,6 +312,7 @@
     <Content Include="Views\Clients\Add_client.cshtml" />
     <Content Include="Views\Clients\Edit_client.cshtml" />
     <Content Include="Views\Clients\Detail_client.cshtml" />
+    <Content Include="Views\Expenses\Add_Expenses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

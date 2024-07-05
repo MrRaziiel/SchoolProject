@@ -34,7 +34,7 @@
     <Property Name="type_Of_Payment" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\MEU PROJECTO\FINANÇAS\FINANÇAS\APP_DATA\CLIENTESBD.MDF.dbo.v_clients' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJECT\FINANÇAS\FINANÇAS\APP_DATA\CLIENTESBD.MDF.dbo.v_clients' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="v_clients">
     <Key>
       <PropertyRef Name="idcli" />
@@ -49,6 +49,20 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\MEU PROJECT
     <Property Name="age" Type="numeric" Precision="18" Scale="6" />
     <Property Name="idFatura" Type="int" />
     <Property Name="fotopath" Type="nchar" MaxLength="350" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJECT\FINANÇAS\FINANÇAS\APP_DATA\CLIENTESBD.MDF.dbo.v_expense' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_expense">
+    <Key>
+      <PropertyRef Name="idfatura" />
+    </Key>
+    <Property Name="idfatura" Type="int" Nullable="false" />
+    <Property Name="idcli" Type="int" />
+    <Property Name="dataFirstPayment" Type="date" />
+    <Property Name="type_Of_Expense" Type="int" />
+    <Property Name="type_Of_Payment" Type="int" />
+    <Property Name="date_payment" Type="date" />
+    <Property Name="value_Of_Paymente" Type="decimal" Precision="10" Scale="2" />
   </EntityType>
   <Association Name="FK__details__idfatur__72C60C4A">
     <End Role="expense" Type="Self.expense" Multiplicity="0..1" />
@@ -102,6 +116,17 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\MEU PROJECT
     [v_clients].[idFatura] AS [idFatura], 
     [v_clients].[fotopath] AS [fotopath]
     FROM [dbo].[v_clients] AS [v_clients]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_expense" EntityType="Self.v_expense" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_expense].[idfatura] AS [idfatura], 
+    [v_expense].[idcli] AS [idcli], 
+    [v_expense].[dataFirstPayment] AS [dataFirstPayment], 
+    [v_expense].[type_Of_Expense] AS [type_Of_Expense], 
+    [v_expense].[type_Of_Payment] AS [type_Of_Payment], 
+    [v_expense].[date_payment] AS [date_payment], 
+    [v_expense].[value_Of_Paymente] AS [value_Of_Paymente]
+    FROM [dbo].[v_expense] AS [v_expense]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK__details__idfatur__72C60C4A" Association="Self.FK__details__idfatur__72C60C4A">
       <End Role="expense" EntitySet="expense" />

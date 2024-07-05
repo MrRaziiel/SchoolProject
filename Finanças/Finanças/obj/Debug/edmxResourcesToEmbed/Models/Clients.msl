@@ -52,5 +52,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="v_expense">
+      <EntityTypeMapping TypeName="clientesBDModel.v_expense">
+        <MappingFragment StoreEntitySet="v_expense">
+          <ScalarProperty Name="value_Of_Paymente" ColumnName="value_Of_Paymente" />
+          <ScalarProperty Name="date_payment" ColumnName="date_payment" />
+          <ScalarProperty Name="type_Of_Payment" ColumnName="type_Of_Payment" />
+          <ScalarProperty Name="type_Of_Expense" ColumnName="type_Of_Expense" />
+          <ScalarProperty Name="dataFirstPayment" ColumnName="dataFirstPayment" />
+          <ScalarProperty Name="idcli" ColumnName="idcli" />
+          <ScalarProperty Name="idfatura" ColumnName="idfatura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

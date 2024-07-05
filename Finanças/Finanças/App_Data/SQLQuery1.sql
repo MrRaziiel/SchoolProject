@@ -22,8 +22,3 @@ set identity_insert details OFF
 
 select * from clients
 
-GO
-
-create view v_clients
-as
-select * from clients
