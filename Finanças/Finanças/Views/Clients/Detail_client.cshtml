@@ -1,0 +1,68 @@
+﻿@model Finanças.Models.client
+
+@{
+    ViewBag.Title = "Detail_client";
+}
+
+<h2>Detail of @Url.Content(Model.firstName).ToString().ToUpper()  @Html.DisplayFor(model => model.lastName).ToString().ToUpper()</h2>
+
+<div class="container">
+    <div class="row">
+        <hr />
+        <dl class="col">
+            <dt>
+                @if (Model.fotopath == null)
+                {
+                    <img style="width: 400px; border-radius: 50%;" src="@Url.Content("~/Photos/nocar.png" )" />
+
+                }
+                else
+                {
+                    <img style="width: 400px; border-radius: 50%; " src="@Url.Content("~/Photos/" +  Model.fotopath )" />
+
+                }
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.role)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.role)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.datanasc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.datanasc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.age)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.age)
+            </dd>
+
+        </dl>
+
+        <div class="col">
+                <h3 style="text-align:center">FATURAS</h3>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit_client", new { id = Model.idcli }) |
+    @Html.ActionLink("Back to List", "List_of_clients")
+</p>

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="clientesBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="client">
+    <Key>
+      <PropertyRef Name="idcli" />
+    </Key>
+    <Property Name="idcli" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="datanasc" Type="DateTime" Precision="0" />
+    <Property Name="age" Type="Decimal" Precision="18" Scale="6" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="idFatura" Type="Int32" />
+    <NavigationProperty Name="expenses" Relationship="Self.FK__expense__idcli__5DCAEF64" FromRole="clients" ToRole="expense" />
+    <NavigationProperty Name="clients1" Relationship="Self.fkclientsclients" FromRole="clients" ToRole="clients1" />
+    <NavigationProperty Name="client1" Relationship="Self.fkclientsclients" FromRole="clients1" ToRole="clients" />
+    <Property Name="fotopath" Type="String" MaxLength="350" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="detail">
+    <Key>
+      <PropertyRef Name="idfaturadet" />
+    </Key>
+    <Property Name="idfaturadet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idfatura" Type="Int32" />
+    <Property Name="date_payment" Type="DateTime" Precision="0" />
+    <Property Name="value_Of_Paymente" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="expense" Relationship="Self.FK__details__idfatur__72C60C4A" FromRole="details" ToRole="expense" />
+  </EntityType>
+  <EntityType Name="expense">
+    <Key>
+      <PropertyRef Name="idfatura" />
+    </Key>
+    <Property Name="idfatura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idcli" Type="Int32" />
+    <Property Name="dataFirstPayment" Type="DateTime" Precision="0" />
+    <Property Name="type_Of_Expense" Type="Int32" />
+    <Property Name="type_Of_Payment" Type="Int32" />
+    <NavigationProperty Name="client" Relationship="Self.FK__expense__idcli__5DCAEF64" FromRole="expense" ToRole="clients" />
+    <NavigationProperty Name="details" Relationship="Self.FK__details__idfatur__72C60C4A" FromRole="expense" ToRole="details" />
+  </EntityType>
+  <Association Name="FK__expense__idcli__5DCAEF64">
+    <End Role="clients" Type="Self.client" Multiplicity="0..1" />
+    <End Role="expense" Type="Self.expense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clients">
+        <PropertyRef Name="idcli" />
+      </Principal>
+      <Dependent Role="expense">
+        <PropertyRef Name="idcli" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkclientsclients">
+    <End Role="clients" Type="Self.client" Multiplicity="0..1" />
+    <End Role="clients1" Type="Self.client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clients">
+        <PropertyRef Name="idcli" />
+      </Principal>
+      <Dependent Role="clients1">
+        <PropertyRef Name="idFatura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__details__idfatur__72C60C4A">
+    <End Role="expense" Type="Self.expense" Multiplicity="0..1" />
+    <End Role="details" Type="Self.detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="expense">
+        <PropertyRef Name="idfatura" />
+      </Principal>
+      <Dependent Role="details">
+        <PropertyRef Name="idfatura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="clientesBDEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="clients" EntityType="Self.client" />
+    <EntitySet Name="details" EntityType="Self.detail" />
+    <EntitySet Name="expenses" EntityType="Self.expense" />
+    <AssociationSet Name="FK__expense__idcli__5DCAEF64" Association="Self.FK__expense__idcli__5DCAEF64">
+      <End Role="clients" EntitySet="clients" />
+      <End Role="expense" EntitySet="expenses" />
+    </AssociationSet>
+    <AssociationSet Name="fkclientsclients" Association="Self.fkclientsclients">
+      <End Role="clients" EntitySet="clients" />
+      <End Role="clients1" EntitySet="clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__details__idfatur__72C60C4A" Association="Self.FK__details__idfatur__72C60C4A">
+      <End Role="expense" EntitySet="expenses" />
+      <End Role="details" EntitySet="details" />
+    </AssociationSet>
+    <EntitySet Name="v_clients" EntityType="clientesBDModel.v_clients" />
+  </EntityContainer>
+  <EntityType Name="v_clients">
+    <Key>
+      <PropertyRef Name="idcli" />
+      <PropertyRef Name="password" />
+    </Key>
+    <Property Name="idcli" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="datanasc" Type="DateTime" Precision="0" />
+    <Property Name="age" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="idFatura" Type="Int32" />
+    <Property Name="fotopath" Type="String" MaxLength="350" FixedLength="true" Unicode="true" />
+  </EntityType>
+</Schema>

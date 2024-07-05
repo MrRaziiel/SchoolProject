@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="clientesBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="clients">
+          <Key>
+            <PropertyRef Name="idcli" />
+          </Key>
+          <Property Name="idcli" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" />
+          <Property Name="datanasc" Type="date" />
+          <Property Name="age" Type="numeric" Precision="18" Scale="6" StoreGeneratedPattern="Computed" />
+          <Property Name="idFatura" Type="int" />
+          <Property Name="fotopath" Type="nchar" MaxLength="350" />
+        </EntityType>
+        <EntityType Name="details">
+          <Key>
+            <PropertyRef Name="idfaturadet" />
+          </Key>
+          <Property Name="idfaturadet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idfatura" Type="int" />
+          <Property Name="date_payment" Type="date" />
+          <Property Name="value_Of_Paymente" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="expense">
+          <Key>
+            <PropertyRef Name="idfatura" />
+          </Key>
+          <Property Name="idfatura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idcli" Type="int" />
+          <Property Name="dataFirstPayment" Type="date" />
+          <Property Name="type_Of_Expense" Type="int" />
+          <Property Name="type_Of_Payment" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\MEU PROJECTO\FINANÇAS\FINANÇAS\APP_DATA\CLIENTESBD.MDF.dbo.v_clients' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_clients">
+          <Key>
+            <PropertyRef Name="idcli" />
+            <PropertyRef Name="password" />
+          </Key>
+          <Property Name="idcli" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" />
+          <Property Name="datanasc" Type="date" />
+          <Property Name="age" Type="numeric" Precision="18" Scale="6" />
+          <Property Name="idFatura" Type="int" />
+          <Property Name="fotopath" Type="nchar" MaxLength="350" />
+        </EntityType>
+        <Association Name="FK__details__idfatur__72C60C4A">
+          <End Role="expense" Type="Self.expense" Multiplicity="0..1" />
+          <End Role="details" Type="Self.details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expense">
+              <PropertyRef Name="idfatura" />
+            </Principal>
+            <Dependent Role="details">
+              <PropertyRef Name="idfatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__expense__idcli__5DCAEF64">
+          <End Role="clients" Type="Self.clients" Multiplicity="0..1" />
+          <End Role="expense" Type="Self.expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clients">
+              <PropertyRef Name="idcli" />
+            </Principal>
+            <Dependent Role="expense">
+              <PropertyRef Name="idcli" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkclientsclients">
+          <End Role="clients" Type="Self.clients" Multiplicity="0..1" />
+          <End Role="clients1" Type="Self.clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clients">
+              <PropertyRef Name="idcli" />
+            </Principal>
+            <Dependent Role="clients1">
+              <PropertyRef Name="idFatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="clientesBDModelStoreContainer">
+          <EntitySet Name="clients" EntityType="Self.clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="details" EntityType="Self.details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="expense" EntityType="Self.expense" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="v_clients" EntityType="Self.v_clients" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_clients].[idcli] AS [idcli], 
+    [v_clients].[firstName] AS [firstName], 
+    [v_clients].[lastName] AS [lastName], 
+    [v_clients].[password] AS [password], 
+    [v_clients].[role] AS [role], 
+    [v_clients].[datanasc] AS [datanasc], 
+    [v_clients].[age] AS [age], 
+    [v_clients].[idFatura] AS [idFatura], 
+    [v_clients].[fotopath] AS [fotopath]
+    FROM [dbo].[v_clients] AS [v_clients]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__details__idfatur__72C60C4A" Association="Self.FK__details__idfatur__72C60C4A">
+            <End Role="expense" EntitySet="expense" />
+            <End Role="details" EntitySet="details" />
+          </AssociationSet>
+          <AssociationSet Name="FK__expense__idcli__5DCAEF64" Association="Self.FK__expense__idcli__5DCAEF64">
+            <End Role="clients" EntitySet="clients" />
+            <End Role="expense" EntitySet="expense" />
+          </AssociationSet>
+          <AssociationSet Name="fkclientsclients" Association="Self.fkclientsclients">
+            <End Role="clients" EntitySet="clients" />
+            <End Role="clients1" EntitySet="clients" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="clientesBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="idcli" />
+          </Key>
+          <Property Name="idcli" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="datanasc" Type="DateTime" Precision="0" />
+          <Property Name="age" Type="Decimal" Precision="18" Scale="6" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="idFatura" Type="Int32" />
+          <NavigationProperty Name="expenses" Relationship="Self.FK__expense__idcli__5DCAEF64" FromRole="clients" ToRole="expense" />
+          <NavigationProperty Name="clients1" Relationship="Self.fkclientsclients" FromRole="clients" ToRole="clients1" />
+          <NavigationProperty Name="client1" Relationship="Self.fkclientsclients" FromRole="clients1" ToRole="clients" />
+          <Property Name="fotopath" Type="String" MaxLength="350" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="detail">
+          <Key>
+            <PropertyRef Name="idfaturadet" />
+          </Key>
+          <Property Name="idfaturadet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idfatura" Type="Int32" />
+          <Property Name="date_payment" Type="DateTime" Precision="0" />
+          <Property Name="value_Of_Paymente" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="expense" Relationship="Self.FK__details__idfatur__72C60C4A" FromRole="details" ToRole="expense" />
+        </EntityType>
+        <EntityType Name="expense">
+          <Key>
+            <PropertyRef Name="idfatura" />
+          </Key>
+          <Property Name="idfatura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idcli" Type="Int32" />
+          <Property Name="dataFirstPayment" Type="DateTime" Precision="0" />
+          <Property Name="type_Of_Expense" Type="Int32" />
+          <Property Name="type_Of_Payment" Type="Int32" />
+          <NavigationProperty Name="client" Relationship="Self.FK__expense__idcli__5DCAEF64" FromRole="expense" ToRole="clients" />
+          <NavigationProperty Name="details" Relationship="Self.FK__details__idfatur__72C60C4A" FromRole="expense" ToRole="details" />
+        </EntityType>
+        <Association Name="FK__expense__idcli__5DCAEF64">
+          <End Role="clients" Type="Self.client" Multiplicity="0..1" />
+          <End Role="expense" Type="Self.expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clients">
+              <PropertyRef Name="idcli" />
+            </Principal>
+            <Dependent Role="expense">
+              <PropertyRef Name="idcli" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkclientsclients">
+          <End Role="clients" Type="Self.client" Multiplicity="0..1" />
+          <End Role="clients1" Type="Self.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clients">
+              <PropertyRef Name="idcli" />
+            </Principal>
+            <Dependent Role="clients1">
+              <PropertyRef Name="idFatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__details__idfatur__72C60C4A">
+          <End Role="expense" Type="Self.expense" Multiplicity="0..1" />
+          <End Role="details" Type="Self.detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expense">
+              <PropertyRef Name="idfatura" />
+            </Principal>
+            <Dependent Role="details">
+              <PropertyRef Name="idfatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="clientesBDEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="clients" EntityType="Self.client" />
+          <EntitySet Name="details" EntityType="Self.detail" />
+          <EntitySet Name="expenses" EntityType="Self.expense" />
+          <AssociationSet Name="FK__expense__idcli__5DCAEF64" Association="Self.FK__expense__idcli__5DCAEF64">
+            <End Role="clients" EntitySet="clients" />
+            <End Role="expense" EntitySet="expenses" />
+          </AssociationSet>
+          <AssociationSet Name="fkclientsclients" Association="Self.fkclientsclients">
+            <End Role="clients" EntitySet="clients" />
+            <End Role="clients1" EntitySet="clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__details__idfatur__72C60C4A" Association="Self.FK__details__idfatur__72C60C4A">
+            <End Role="expense" EntitySet="expenses" />
+            <End Role="details" EntitySet="details" />
+          </AssociationSet>
+          <EntitySet Name="v_clients" EntityType="clientesBDModel.v_clients" />
+        </EntityContainer>
+        <EntityType Name="v_clients">
+          <Key>
+            <PropertyRef Name="idcli" />
+            <PropertyRef Name="password" />
+          </Key>
+          <Property Name="idcli" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="datanasc" Type="DateTime" Precision="0" />
+          <Property Name="age" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="idFatura" Type="Int32" />
+          <Property Name="fotopath" Type="String" MaxLength="350" FixedLength="true" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="clientesBDModelStoreContainer" CdmEntityContainer="clientesBDEntities3">
+          <EntitySetMapping Name="clients">
+            <EntityTypeMapping TypeName="clientesBDModel.client">
+              <MappingFragment StoreEntitySet="clients">
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="fotopath" ColumnName="fotopath" />
+                <ScalarProperty Name="idcli" ColumnName="idcli" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="datanasc" ColumnName="datanasc" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="idFatura" ColumnName="idFatura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="details">
+            <EntityTypeMapping TypeName="clientesBDModel.detail">
+              <MappingFragment StoreEntitySet="details">
+                <ScalarProperty Name="idfaturadet" ColumnName="idfaturadet" />
+                <ScalarProperty Name="idfatura" ColumnName="idfatura" />
+                <ScalarProperty Name="date_payment" ColumnName="date_payment" />
+                <ScalarProperty Name="value_Of_Paymente" ColumnName="value_Of_Paymente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="expenses">
+            <EntityTypeMapping TypeName="clientesBDModel.expense">
+              <MappingFragment StoreEntitySet="expense">
+                <ScalarProperty Name="idfatura" ColumnName="idfatura" />
+                <ScalarProperty Name="idcli" ColumnName="idcli" />
+                <ScalarProperty Name="dataFirstPayment" ColumnName="dataFirstPayment" />
+                <ScalarProperty Name="type_Of_Expense" ColumnName="type_Of_Expense" />
+                <ScalarProperty Name="type_Of_Payment" ColumnName="type_Of_Payment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_clients">
+            <EntityTypeMapping TypeName="clientesBDModel.v_clients">
+              <MappingFragment StoreEntitySet="v_clients">
+                <ScalarProperty Name="fotopath" ColumnName="fotopath" />
+                <ScalarProperty Name="idFatura" ColumnName="idFatura" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="datanasc" ColumnName="datanasc" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="idcli" ColumnName="idcli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

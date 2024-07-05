@@ -1,0 +1,121 @@
+﻿@model IEnumerable<Finanças.Models.v_clients>
+
+@{
+    ViewBag.Title = "List_Of_Clients";
+}
+
+<h2>LIST OF CLIENTS</h2>
+
+<h3 class="text-danger">@ViewBag.msg</h3>
+<p>
+    @Html.ActionLink("Create New", "Add_client")
+</p>
+
+<div class="clients-grid row">
+    @foreach (var item in Model)
+    {
+        <div class="client-item col-md-6 col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-borderless">
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.idcli)</th>
+                            <td>@Html.DisplayFor(modelItem => item.idcli)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.firstName)</th>
+                            <td>@Html.DisplayFor(modelItem => item.firstName)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.lastName)</th>
+                            <td>@Html.DisplayFor(modelItem => item.lastName)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.role)</th>
+                            <td>@Html.DisplayFor(modelItem => item.role)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.datanasc)</th>
+                            <td>@Html.DisplayFor(modelItem => item.datanasc)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.age)</th>
+                            <td>@Html.DisplayFor(modelItem => item.age)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.fotopath)</th>
+                            <td class="client-photo">
+                                @if (item.fotopath == null)
+                                {
+                                    <img src="@Url.Content("~/Photos/No_image.png")" class="img-fluid" />
+                                }
+                                else
+                                {
+                                    <img src="@Url.Content("~/photos/" + item.fotopath)" class="img-fluid" />
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="text-center">
+                                <div class="d-flex justify-content-center gap-2">
+                                    @Html.ActionLink("EDIT", "Edit_client", new { id = item.idcli }, new { @class = "btn btn-info btn-sm border border-black border-3" })
+                                    @Html.ActionLink("DETAIL", "Detail_client", new { id = item.idcli }, new { @class = "btn btn-success btn-sm border border-black border-3" })
+                                    @Html.ActionLink("DELETE", null, null, new { id = item.idcli, name = "del", @class = "btn btn-danger btn-sm fa fa-trash border border-black border-3" })
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+    <div>
+        @Html.ActionLink("Back to List", "List_of_clients", "Clients")
+    </div>
+</div>
+
+@section deleteClient
+{
+    <script>
+        $(() => {
+            $("[name='del']").click((evt) => {
+                evt = evt ? evt : window.event;
+                evt.preventDefault();
+                let ID = evt.target.id;
+                let r = confirm("You really want to permanently delete a client?");
+                if (!r) return false;
+                $.ajax({
+                    url: '@Url.Action("Delete_client", "Clients")',
+                    type: "post",
+                    dataType: "json",
+                    data: { Id: ID },
+                    success: function (data) {
+                        console.log(data.msg);
+                        if (data.msg == "ok") {
+                            $(evt.target).closest("tr").remove();
+                        }
+                        $("#tv").html(data.msg);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+}
+<style>
+    .client-photo img {
+        width: 70px;
+        height: 70px;
+    }
+
+/*    .actions {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }*/
+    .gap-2 {
+        gap: 10px;
+    }
+</style>
