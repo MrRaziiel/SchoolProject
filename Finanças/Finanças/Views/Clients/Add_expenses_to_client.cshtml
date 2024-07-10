@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Finanças.Models.v_expense>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idcli)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dataFirstPayment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type_Of_Expense)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type_Of_Payment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date_payment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.value_Of_Paymente)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idcli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataFirstPayment)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.type_Of_Expense)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.type_Of_Payment)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.date_payment)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.value_Of_Paymente)
+            </th>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+        }
+    </table>
+}

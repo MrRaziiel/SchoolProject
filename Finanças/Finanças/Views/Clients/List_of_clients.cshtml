@@ -4,12 +4,12 @@
     ViewBag.Title = "List_Of_Clients";
 }
 
-<h2>LIST OF CLIENTS</h2>
+<h2 class="text-center">CLIENTS LIST</h2>
 
 <h3 class="text-danger">@ViewBag.msg</h3>
 
 
-<p>
+<p >
     <a href="@Url.Action("Add_client", "Clients")" class="btn btn-primary">
         NEW CLIENT
     </a>
@@ -80,7 +80,7 @@
 {
     <script>
         $(() => {
-            // Single client delete handler
+            
             $("[name='del']").click((evt) => {
                 evt.preventDefault();
                 let ID = evt.target.id;
@@ -115,19 +115,15 @@
         height: 10em;
     }
 
-    /*    .actions {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-    }*/
+
     .gap-2 {
         gap: 10px;
     }
 
     .gradient-bg {
-        background: linear-gradient(to right, #00c6ff, #0072ff); /* Adjust colors and direction as needed */
-        color: white; /* Optional: text color */
-        padding: 20px; /* Optional: padding inside the div */
+        background: linear-gradient(to right, #66b3ff, #3399ff); 
+        color: white; 
+        padding: 20px;
     }
 </style>
 

@@ -138,5 +138,17 @@ namespace Finanças.Controllers
                 }
             }
         }
+
+
+        public ActionResult Add_expenses_to_client(int? id)
+        {
+            using (clientesBDEntities3 db = new clientesBDEntities3())
+            {
+
+                IEnumerable<v_expense> clientes = db.v_expense.Where(x => x.idcli == id).ToList();
+               
+                return PartialView(clientes);
+            }
+        }
     }
 }

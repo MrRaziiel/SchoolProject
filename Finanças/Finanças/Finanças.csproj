@@ -313,6 +313,7 @@
     <Content Include="Views\Clients\Edit_client.cshtml" />
     <Content Include="Views\Clients\Detail_client.cshtml" />
     <Content Include="Views\Expenses\Add_Expenses.cshtml" />
+    <Content Include="Views\Clients\Add_expenses_to_client.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
