@@ -21,5 +21,8 @@ namespace Finanças.Models
         public Nullable<int> type_Of_Payment { get; set; }
         public Nullable<System.DateTime> date_payment { get; set; }
         public Nullable<decimal> value_Of_Paymente { get; set; }
+        public string name { get; set; }
+        public Nullable<decimal> actual_payment { get; set; }
+        public Nullable<bool> is_payed { get; set; }
     }
 }

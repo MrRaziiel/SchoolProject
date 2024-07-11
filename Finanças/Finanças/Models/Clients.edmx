@@ -27,6 +27,9 @@
           <Property Name="idfatura" Type="int" />
           <Property Name="date_payment" Type="date" />
           <Property Name="value_Of_Paymente" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="is_payed" Type="bit" />
+          <Property Name="actual_payment" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="expense">
           <Key>
@@ -37,6 +40,12 @@
           <Property Name="dataFirstPayment" Type="date" />
           <Property Name="type_Of_Expense" Type="int" />
           <Property Name="type_Of_Payment" Type="int" />
+        </EntityType>
+        <EntityType Name="type_of_expenses">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJECT\FINANÇAS\FINANÇAS\APP_DATA\CLIENTESBD.MDF.dbo.v_clients' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -68,6 +77,9 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
           <Property Name="type_Of_Payment" Type="int" />
           <Property Name="date_payment" Type="date" />
           <Property Name="value_Of_Paymente" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="actual_payment" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="is_payed" Type="bit" />
         </EntityType>
         <Association Name="FK__details__idfatur__72C60C4A">
           <End Role="expense" Type="Self.expense" Multiplicity="0..1" />
@@ -78,6 +90,18 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
             </Principal>
             <Dependent Role="details">
               <PropertyRef Name="idfatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__details__name__44952D46">
+          <End Role="type_of_expenses" Type="Self.type_of_expenses" Multiplicity="0..1" />
+          <End Role="details" Type="Self.details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_of_expenses">
+              <PropertyRef Name="name" />
+            </Principal>
+            <Dependent Role="details">
+              <PropertyRef Name="name" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -109,6 +133,7 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
           <EntitySet Name="clients" EntityType="Self.clients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="details" EntityType="Self.details" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="expense" EntityType="Self.expense" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="type_of_expenses" EntityType="Self.type_of_expenses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="v_clients" EntityType="Self.v_clients" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_clients].[idcli] AS [idcli], 
@@ -130,11 +155,18 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
     [v_expense].[type_Of_Expense] AS [type_Of_Expense], 
     [v_expense].[type_Of_Payment] AS [type_Of_Payment], 
     [v_expense].[date_payment] AS [date_payment], 
-    [v_expense].[value_Of_Paymente] AS [value_Of_Paymente]
+    [v_expense].[value_Of_Paymente] AS [value_Of_Paymente], 
+    [v_expense].[name] AS [name], 
+    [v_expense].[actual_payment] AS [actual_payment], 
+    [v_expense].[is_payed] AS [is_payed]
     FROM [dbo].[v_expense] AS [v_expense]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__details__idfatur__72C60C4A" Association="Self.FK__details__idfatur__72C60C4A">
             <End Role="expense" EntitySet="expense" />
+            <End Role="details" EntitySet="details" />
+          </AssociationSet>
+          <AssociationSet Name="FK__details__name__44952D46" Association="Self.FK__details__name__44952D46">
+            <End Role="type_of_expenses" EntitySet="type_of_expenses" />
             <End Role="details" EntitySet="details" />
           </AssociationSet>
           <AssociationSet Name="FK__expense__idcli__5DCAEF64" Association="Self.FK__expense__idcli__5DCAEF64">
@@ -162,12 +194,12 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
           <Property Name="datanasc" Type="DateTime" Precision="0" />
           <Property Name="age" Type="Decimal" Precision="18" Scale="6" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="idFatura" Type="Int32" />
-          <NavigationProperty Name="expenses" Relationship="Self.FK__expense__idcli__5DCAEF64" FromRole="clients" ToRole="expense" />
           <NavigationProperty Name="clients1" Relationship="Self.fkclientsclients" FromRole="clients" ToRole="clients1" />
           <NavigationProperty Name="client1" Relationship="Self.fkclientsclients" FromRole="clients1" ToRole="clients" />
           <Property Name="fotopath" Type="String" MaxLength="350" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="expenses" Relationship="clientesBDModel.FK__expense__idcli__5DCAEF64" FromRole="client" ToRole="expense" />
         </EntityType>
-        <EntityType Name="detail">
+        <EntityType Name="details">
           <Key>
             <PropertyRef Name="idfaturadet" />
           </Key>
@@ -175,32 +207,12 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
           <Property Name="idfatura" Type="Int32" />
           <Property Name="date_payment" Type="DateTime" Precision="0" />
           <Property Name="value_Of_Paymente" Type="Decimal" Precision="10" Scale="2" />
-          <NavigationProperty Name="expense" Relationship="Self.FK__details__idfatur__72C60C4A" FromRole="details" ToRole="expense" />
+          <Property Name="is_payed" Type="Boolean" />
+          <Property Name="actual_payment" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="expense" Relationship="clientesBDModel.FK__details__idfatur__72C60C4A" FromRole="details" ToRole="expense" />
+          <NavigationProperty Name="type_of_expenses" Relationship="clientesBDModel.FK__details__name__44952D46" FromRole="details" ToRole="type_of_expenses" />
         </EntityType>
-        <EntityType Name="expense">
-          <Key>
-            <PropertyRef Name="idfatura" />
-          </Key>
-          <Property Name="idfatura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idcli" Type="Int32" />
-          <Property Name="dataFirstPayment" Type="DateTime" Precision="0" />
-          <Property Name="type_Of_Expense" Type="Int32" />
-          <Property Name="type_Of_Payment" Type="Int32" />
-          <NavigationProperty Name="client" Relationship="Self.FK__expense__idcli__5DCAEF64" FromRole="expense" ToRole="clients" />
-          <NavigationProperty Name="details" Relationship="Self.FK__details__idfatur__72C60C4A" FromRole="expense" ToRole="details" />
-        </EntityType>
-        <Association Name="FK__expense__idcli__5DCAEF64">
-          <End Role="clients" Type="Self.client" Multiplicity="0..1" />
-          <End Role="expense" Type="Self.expense" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clients">
-              <PropertyRef Name="idcli" />
-            </Principal>
-            <Dependent Role="expense">
-              <PropertyRef Name="idcli" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fkclientsclients">
           <End Role="clients" Type="Self.client" Multiplicity="0..1" />
           <End Role="clients1" Type="Self.client" Multiplicity="*" />
@@ -213,35 +225,28 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__details__idfatur__72C60C4A">
-          <End Role="expense" Type="Self.expense" Multiplicity="0..1" />
-          <End Role="details" Type="Self.detail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="expense">
-              <PropertyRef Name="idfatura" />
-            </Principal>
-            <Dependent Role="details">
-              <PropertyRef Name="idfatura" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="clientesBDEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="clients" EntityType="Self.client" />
-          <EntitySet Name="details" EntityType="Self.detail" />
-          <EntitySet Name="expenses" EntityType="Self.expense" />
-          <AssociationSet Name="FK__expense__idcli__5DCAEF64" Association="Self.FK__expense__idcli__5DCAEF64">
-            <End Role="clients" EntitySet="clients" />
-            <End Role="expense" EntitySet="expenses" />
-          </AssociationSet>
+          <EntitySet Name="details1" EntityType="clientesBDModel.details" />
           <AssociationSet Name="fkclientsclients" Association="Self.fkclientsclients">
             <End Role="clients" EntitySet="clients" />
             <End Role="clients1" EntitySet="clients" />
           </AssociationSet>
-          <AssociationSet Name="FK__details__idfatur__72C60C4A" Association="Self.FK__details__idfatur__72C60C4A">
-            <End Role="expense" EntitySet="expenses" />
-            <End Role="details" EntitySet="details" />
-          </AssociationSet>
           <EntitySet Name="v_clients" EntityType="clientesBDModel.v_clients" />
+          <EntitySet Name="expenses" EntityType="clientesBDModel.expense" />
+          <AssociationSet Name="FK__expense__idcli__5DCAEF64" Association="clientesBDModel.FK__expense__idcli__5DCAEF64">
+            <End Role="client" EntitySet="clients" />
+            <End Role="expense" EntitySet="expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__details__idfatur__72C60C4A" Association="clientesBDModel.FK__details__idfatur__72C60C4A">
+            <End Role="expense" EntitySet="expenses" />
+            <End Role="details" EntitySet="details1" />
+          </AssociationSet>
+          <EntitySet Name="type_of_expenses" EntityType="clientesBDModel.type_of_expenses" />
+          <AssociationSet Name="FK__details__name__44952D46" Association="clientesBDModel.FK__details__name__44952D46">
+            <End Role="type_of_expenses" EntitySet="type_of_expenses" />
+            <End Role="details" EntitySet="details1" />
+          </AssociationSet>
           <EntitySet Name="v_expense" EntityType="clientesBDModel.v_expense" />
         </EntityContainer>
         <EntityType Name="v_clients">
@@ -259,6 +264,61 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
           <Property Name="idFatura" Type="Int32" />
           <Property Name="fotopath" Type="String" MaxLength="350" FixedLength="true" Unicode="true" />
         </EntityType>
+        <EntityType Name="expense">
+          <Key>
+            <PropertyRef Name="idfatura" />
+          </Key>
+          <Property Name="idfatura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idcli" Type="Int32" />
+          <Property Name="dataFirstPayment" Type="DateTime" Precision="0" />
+          <Property Name="type_Of_Expense" Type="Int32" />
+          <Property Name="type_Of_Payment" Type="Int32" />
+          <NavigationProperty Name="client" Relationship="clientesBDModel.FK__expense__idcli__5DCAEF64" FromRole="expense" ToRole="client" />
+          <NavigationProperty Name="details" Relationship="clientesBDModel.FK__details__idfatur__72C60C4A" FromRole="expense" ToRole="details" />
+        </EntityType>
+        <Association Name="FK__expense__idcli__5DCAEF64">
+          <End Type="clientesBDModel.client" Role="client" Multiplicity="0..1" />
+          <End Type="clientesBDModel.expense" Role="expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="idcli" />
+            </Principal>
+            <Dependent Role="expense">
+              <PropertyRef Name="idcli" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__details__idfatur__72C60C4A">
+          <End Type="clientesBDModel.expense" Role="expense" Multiplicity="0..1" />
+          <End Type="clientesBDModel.details" Role="details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="expense">
+              <PropertyRef Name="idfatura" />
+            </Principal>
+            <Dependent Role="details">
+              <PropertyRef Name="idfatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="type_of_expenses">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="details" Relationship="clientesBDModel.FK__details__name__44952D46" FromRole="type_of_expenses" ToRole="details" />
+        </EntityType>
+        <Association Name="FK__details__name__44952D46">
+          <End Type="clientesBDModel.type_of_expenses" Role="type_of_expenses" Multiplicity="0..1" />
+          <End Type="clientesBDModel.details" Role="details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_of_expenses">
+              <PropertyRef Name="name" />
+            </Principal>
+            <Dependent Role="details">
+              <PropertyRef Name="name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="v_expense">
           <Key>
             <PropertyRef Name="idfatura" />
@@ -270,6 +330,9 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
           <Property Name="type_Of_Payment" Type="Int32" />
           <Property Name="date_payment" Type="DateTime" Precision="0" />
           <Property Name="value_Of_Paymente" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="actual_payment" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="is_payed" Type="Boolean" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -292,24 +355,16 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="details">
-            <EntityTypeMapping TypeName="clientesBDModel.detail">
+          <EntitySetMapping Name="details1">
+            <EntityTypeMapping TypeName="clientesBDModel.details">
               <MappingFragment StoreEntitySet="details">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="actual_payment" ColumnName="actual_payment" />
+                <ScalarProperty Name="is_payed" ColumnName="is_payed" />
                 <ScalarProperty Name="idfaturadet" ColumnName="idfaturadet" />
                 <ScalarProperty Name="idfatura" ColumnName="idfatura" />
                 <ScalarProperty Name="date_payment" ColumnName="date_payment" />
                 <ScalarProperty Name="value_Of_Paymente" ColumnName="value_Of_Paymente" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="expenses">
-            <EntityTypeMapping TypeName="clientesBDModel.expense">
-              <MappingFragment StoreEntitySet="expense">
-                <ScalarProperty Name="idfatura" ColumnName="idfatura" />
-                <ScalarProperty Name="idcli" ColumnName="idcli" />
-                <ScalarProperty Name="dataFirstPayment" ColumnName="dataFirstPayment" />
-                <ScalarProperty Name="type_Of_Expense" ColumnName="type_Of_Expense" />
-                <ScalarProperty Name="type_Of_Payment" ColumnName="type_Of_Payment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -328,9 +383,30 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="expenses">
+            <EntityTypeMapping TypeName="clientesBDModel.expense">
+              <MappingFragment StoreEntitySet="expense">
+                <ScalarProperty Name="type_Of_Payment" ColumnName="type_Of_Payment" />
+                <ScalarProperty Name="type_Of_Expense" ColumnName="type_Of_Expense" />
+                <ScalarProperty Name="dataFirstPayment" ColumnName="dataFirstPayment" />
+                <ScalarProperty Name="idcli" ColumnName="idcli" />
+                <ScalarProperty Name="idfatura" ColumnName="idfatura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type_of_expenses">
+            <EntityTypeMapping TypeName="clientesBDModel.type_of_expenses">
+              <MappingFragment StoreEntitySet="type_of_expenses">
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_expense">
             <EntityTypeMapping TypeName="clientesBDModel.v_expense">
               <MappingFragment StoreEntitySet="v_expense">
+                <ScalarProperty Name="is_payed" ColumnName="is_payed" />
+                <ScalarProperty Name="actual_payment" ColumnName="actual_payment" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="value_Of_Paymente" ColumnName="value_Of_Paymente" />
                 <ScalarProperty Name="date_payment" ColumnName="date_payment" />
                 <ScalarProperty Name="type_Of_Payment" ColumnName="type_Of_Payment" />

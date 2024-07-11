@@ -7,19 +7,16 @@
       "RelativeMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|solutionrelative:finan\u00E7as\\models\\clients.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sp3nd\\AppData\\Local\\Temp\\gb5ocy25..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\finan\u00E7as\\views\\clients\\detail_client.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|solutionrelative:finan\u00E7as\\views\\clients\\detail_client.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|d:\\faculdade\\tecnologias da internet 3\\schoolproject\\finan\u00E7as\\finan\u00E7as\\app_data\\sqlquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|solutionrelative:finan\u00E7as\\app_data\\sqlquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\App_Data\\SQLQuery3.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Finan\u00E7as\\App_Data\\SQLQuery3.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|d:\\faculdade\\tecnologias da internet 3\\schoolproject\\finan\u00E7as\\finan\u00E7as\\views\\clients\\add_expenses_to_client.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|solutionrelative:finan\u00E7as\\views\\clients\\add_expenses_to_client.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\finan\u00E7as\\views\\clients\\detail_client.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|solutionrelative:finan\u00E7as\\views\\clients\\detail_client.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\finan\u00E7as\\views\\clients\\list_of_clients.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -30,11 +27,23 @@
       "RelativeMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|solutionrelative:finan\u00E7as\\controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\finan\u00E7as\\views\\expenses\\add_expenses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|solutionrelative:finan\u00E7as\\views\\expenses\\add_expenses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\App_Data\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Finan\u00E7as\\App_Data\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\App_Data\\SQLQuery2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Finan\u00E7as\\App_Data\\SQLQuery2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\finan\u00E7as\\views\\clients\\edit_client.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|solutionrelative:finan\u00E7as\\views\\clients\\edit_client.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|d:\\faculdade\\tecnologias da internet 3\\schoolproject\\finan\u00E7as\\finan\u00E7as\\views\\clients\\add_client.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\finan\u00E7as\\views\\clients\\add_client.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|solutionrelative:finan\u00E7as\\views\\clients\\add_client.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -42,11 +51,20 @@
       "RelativeMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|solutionrelative:finan\u00E7as\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sp3nd\\AppData\\Local\\Temp\\gb5ocy25..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\App_Data\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Finan\u00E7as\\App_Data\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|d:\\faculdade\\tecnologias da internet 3\\schoolproject\\finan\u00E7as\\finan\u00E7as\\app_data\\sqlquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{407D647E-CD2D-415C-9FEF-13F2E7FCE8F9}|Finan\u00E7as\\Finan\u00E7as.csproj|solutionrelative:finan\u00E7as\\app_data\\sqlquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\App_Data\\SQLQuery2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Finan\u00E7as\\App_Data\\SQLQuery2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\App_Data\\SQLQuery3.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Finan\u00E7as\\App_Data\\SQLQuery3.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\App_Data\\SQLQuery3.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Finan\u00E7as\\App_Data\\SQLQuery3.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -56,11 +74,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Add_client.cshtml",
               "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Views\\Clients\\Add_client.cshtml",
               "RelativeDocumentMoniker": "Finan\u00E7as\\Views\\Clients\\Add_client.cshtml",
@@ -74,7 +92,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Edit_client.cshtml",
               "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Views\\Clients\\Edit_client.cshtml",
               "RelativeDocumentMoniker": "Finan\u00E7as\\Views\\Clients\\Edit_client.cshtml",
@@ -88,50 +106,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SQLQuery1.sql ",
-              "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\App_Data\\SQLQuery1.sql",
-              "RelativeDocumentMoniker": "Finan\u00E7as\\App_Data\\SQLQuery1.sql",
-              "ToolTip": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\App_Data\\SQLQuery1.sql",
-              "RelativeToolTip": "Finan\u00E7as\\App_Data\\SQLQuery1.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-07-10T13:40:59.236Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SQLQuery1.sql ",
-              "DocumentMoniker": "C:\\Users\\sp3nd\\AppData\\Local\\Temp\\gb5ocy25..sql",
-              "ToolTip": "SQLQuery1.sql *",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-07-10T13:40:53.754Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Detail_client.cshtml",
-              "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Views\\Clients\\Detail_client.cshtml",
-              "RelativeDocumentMoniker": "Finan\u00E7as\\Views\\Clients\\Detail_client.cshtml",
-              "ToolTip": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Views\\Clients\\Detail_client.cshtml",
-              "RelativeToolTip": "Finan\u00E7as\\Views\\Clients\\Detail_client.cshtml",
-              "ViewState": "AQIAACgAAAAAAAAAAAAcwDoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-04T16:10:02.125Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Add_expenses_to_client.cshtml",
               "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Views\\Clients\\Add_expenses_to_client.cshtml",
               "RelativeDocumentMoniker": "Finan\u00E7as\\Views\\Clients\\Add_expenses_to_client.cshtml",
               "ToolTip": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Views\\Clients\\Add_expenses_to_client.cshtml",
               "RelativeToolTip": "Finan\u00E7as\\Views\\Clients\\Add_expenses_to_client.cshtml",
-              "ViewState": "AQIAABQAAAAAAAAAAAAowBsAAAAQAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEIAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-09T16:56:29.3Z",
+              "WhenOpened": "2024-07-10T18:19:07.602Z",
               "EditorCaption": ""
             },
             {
@@ -143,12 +126,71 @@
               "ToolTip": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Models\\Clients.edmx [Diagram1]",
               "RelativeToolTip": "Finan\u00E7as\\Models\\Clients.edmx [Diagram1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2024-07-09T15:52:52.548Z",
+              "WhenOpened": "2024-07-10T18:04:34.224Z",
               "EditorCaption": " [Diagram1]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
+              "Title": "SQLQuery3.sql ",
+              "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\App_Data\\SQLQuery3.sql",
+              "RelativeDocumentMoniker": "Finan\u00E7as\\App_Data\\SQLQuery3.sql",
+              "ToolTip": "SQLQuery3.sql ",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-07-10T17:59:24.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SQLQuery1.sql ",
+              "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\App_Data\\SQLQuery1.sql",
+              "RelativeDocumentMoniker": "Finan\u00E7as\\App_Data\\SQLQuery1.sql",
+              "ToolTip": "SQLQuery1.sql ",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-07-10T16:59:06.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Add_Expenses.cshtml",
+              "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Views\\Expenses\\Add_Expenses.cshtml",
+              "RelativeDocumentMoniker": "Finan\u00E7as\\Views\\Expenses\\Add_Expenses.cshtml",
+              "ToolTip": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Views\\Expenses\\Add_Expenses.cshtml",
+              "RelativeToolTip": "Finan\u00E7as\\Views\\Expenses\\Add_Expenses.cshtml",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABEAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-10T16:45:47.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SQLQuery2.sql ",
+              "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\App_Data\\SQLQuery2.sql",
+              "RelativeDocumentMoniker": "Finan\u00E7as\\App_Data\\SQLQuery2.sql",
+              "ToolTip": "SQLQuery2.sql ",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-07-10T15:52:22.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Detail_client.cshtml",
+              "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Views\\Clients\\Detail_client.cshtml",
+              "RelativeDocumentMoniker": "Finan\u00E7as\\Views\\Clients\\Detail_client.cshtml",
+              "ToolTip": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Views\\Clients\\Detail_client.cshtml",
+              "RelativeToolTip": "Finan\u00E7as\\Views\\Clients\\Detail_client.cshtml",
+              "ViewState": "AQIAACUAAAAAAAAAAAAcwDoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-04T16:10:02.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Finan\u00E7as\\Views\\Shared\\_Layout.cshtml",
@@ -161,7 +203,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "List_of_clients.cshtml",
               "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Views\\Clients\\List_of_clients.cshtml",
               "RelativeDocumentMoniker": "Finan\u00E7as\\Views\\Clients\\List_of_clients.cshtml",
@@ -174,13 +216,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "ClientsController.cs",
               "DocumentMoniker": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Controllers\\ClientsController.cs",
               "RelativeDocumentMoniker": "Finan\u00E7as\\Controllers\\ClientsController.cs",
               "ToolTip": "D:\\Faculdade\\Tecnologias da internet 3\\SchoolProject\\Finan\u00E7as\\Finan\u00E7as\\Controllers\\ClientsController.cs",
               "RelativeToolTip": "Finan\u00E7as\\Controllers\\ClientsController.cs",
-              "ViewState": "AQIAAGkAAAAAAAAAAAAMwJcAAAAIAAAA",
+              "ViewState": "AQIAAGoAAAAAAAAAAAAAAJUAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-04T14:45:24.638Z",
               "EditorCaption": ""

@@ -198,7 +198,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Clients.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\detail.cs">
+    <Compile Include="Models\details.cs">
       <DependentUpon>Clients.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\expense.cs">
@@ -206,6 +206,9 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\type_of_expenses.cs">
+      <DependentUpon>Clients.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\v_clients.cs">
       <DependentUpon>Clients.tt</DependentUpon>
     </Compile>

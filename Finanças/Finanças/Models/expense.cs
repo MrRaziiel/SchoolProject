@@ -17,7 +17,7 @@ namespace Finanças.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public expense()
         {
-            this.details = new HashSet<detail>();
+            this.details = new HashSet<details>();
         }
     
         public int idfatura { get; set; }
@@ -28,6 +28,6 @@ namespace Finanças.Models
     
         public virtual client client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<detail> details { get; set; }
+        public virtual ICollection<details> details { get; set; }
     }
 }

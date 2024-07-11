@@ -25,6 +25,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.value_Of_Paymente)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.is_payed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.actual_payment)
+            </th>
             <th></th>
         </tr>
 
@@ -48,7 +57,15 @@
             <th>
                 @Html.DisplayFor(modelItem => item.value_Of_Paymente)
             </th>
-
+            <th>
+                @Html.DisplayFor(modelItem => item.name)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.is_payed)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.actual_payment)
+            </th>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |

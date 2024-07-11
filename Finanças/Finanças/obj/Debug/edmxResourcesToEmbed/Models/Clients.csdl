@@ -12,12 +12,12 @@
     <Property Name="datanasc" Type="DateTime" Precision="0" />
     <Property Name="age" Type="Decimal" Precision="18" Scale="6" annotation:StoreGeneratedPattern="Computed" />
     <Property Name="idFatura" Type="Int32" />
-    <NavigationProperty Name="expenses" Relationship="Self.FK__expense__idcli__5DCAEF64" FromRole="clients" ToRole="expense" />
     <NavigationProperty Name="clients1" Relationship="Self.fkclientsclients" FromRole="clients" ToRole="clients1" />
     <NavigationProperty Name="client1" Relationship="Self.fkclientsclients" FromRole="clients1" ToRole="clients" />
     <Property Name="fotopath" Type="String" MaxLength="350" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="expenses" Relationship="clientesBDModel.FK__expense__idcli__5DCAEF64" FromRole="client" ToRole="expense" />
   </EntityType>
-  <EntityType Name="detail">
+  <EntityType Name="details">
     <Key>
       <PropertyRef Name="idfaturadet" />
     </Key>
@@ -25,32 +25,12 @@
     <Property Name="idfatura" Type="Int32" />
     <Property Name="date_payment" Type="DateTime" Precision="0" />
     <Property Name="value_Of_Paymente" Type="Decimal" Precision="10" Scale="2" />
-    <NavigationProperty Name="expense" Relationship="Self.FK__details__idfatur__72C60C4A" FromRole="details" ToRole="expense" />
+    <Property Name="is_payed" Type="Boolean" />
+    <Property Name="actual_payment" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="expense" Relationship="clientesBDModel.FK__details__idfatur__72C60C4A" FromRole="details" ToRole="expense" />
+    <NavigationProperty Name="type_of_expenses" Relationship="clientesBDModel.FK__details__name__44952D46" FromRole="details" ToRole="type_of_expenses" />
   </EntityType>
-  <EntityType Name="expense">
-    <Key>
-      <PropertyRef Name="idfatura" />
-    </Key>
-    <Property Name="idfatura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="idcli" Type="Int32" />
-    <Property Name="dataFirstPayment" Type="DateTime" Precision="0" />
-    <Property Name="type_Of_Expense" Type="Int32" />
-    <Property Name="type_Of_Payment" Type="Int32" />
-    <NavigationProperty Name="client" Relationship="Self.FK__expense__idcli__5DCAEF64" FromRole="expense" ToRole="clients" />
-    <NavigationProperty Name="details" Relationship="Self.FK__details__idfatur__72C60C4A" FromRole="expense" ToRole="details" />
-  </EntityType>
-  <Association Name="FK__expense__idcli__5DCAEF64">
-    <End Role="clients" Type="Self.client" Multiplicity="0..1" />
-    <End Role="expense" Type="Self.expense" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="clients">
-        <PropertyRef Name="idcli" />
-      </Principal>
-      <Dependent Role="expense">
-        <PropertyRef Name="idcli" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fkclientsclients">
     <End Role="clients" Type="Self.client" Multiplicity="0..1" />
     <End Role="clients1" Type="Self.client" Multiplicity="*" />
@@ -63,35 +43,28 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__details__idfatur__72C60C4A">
-    <End Role="expense" Type="Self.expense" Multiplicity="0..1" />
-    <End Role="details" Type="Self.detail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="expense">
-        <PropertyRef Name="idfatura" />
-      </Principal>
-      <Dependent Role="details">
-        <PropertyRef Name="idfatura" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="clientesBDEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="clients" EntityType="Self.client" />
-    <EntitySet Name="details" EntityType="Self.detail" />
-    <EntitySet Name="expenses" EntityType="Self.expense" />
-    <AssociationSet Name="FK__expense__idcli__5DCAEF64" Association="Self.FK__expense__idcli__5DCAEF64">
-      <End Role="clients" EntitySet="clients" />
-      <End Role="expense" EntitySet="expenses" />
-    </AssociationSet>
+    <EntitySet Name="details1" EntityType="clientesBDModel.details" />
     <AssociationSet Name="fkclientsclients" Association="Self.fkclientsclients">
       <End Role="clients" EntitySet="clients" />
       <End Role="clients1" EntitySet="clients" />
     </AssociationSet>
-    <AssociationSet Name="FK__details__idfatur__72C60C4A" Association="Self.FK__details__idfatur__72C60C4A">
-      <End Role="expense" EntitySet="expenses" />
-      <End Role="details" EntitySet="details" />
-    </AssociationSet>
     <EntitySet Name="v_clients" EntityType="clientesBDModel.v_clients" />
+    <EntitySet Name="expenses" EntityType="clientesBDModel.expense" />
+    <AssociationSet Name="FK__expense__idcli__5DCAEF64" Association="clientesBDModel.FK__expense__idcli__5DCAEF64">
+      <End Role="client" EntitySet="clients" />
+      <End Role="expense" EntitySet="expenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__details__idfatur__72C60C4A" Association="clientesBDModel.FK__details__idfatur__72C60C4A">
+      <End Role="expense" EntitySet="expenses" />
+      <End Role="details" EntitySet="details1" />
+    </AssociationSet>
+    <EntitySet Name="type_of_expenses" EntityType="clientesBDModel.type_of_expenses" />
+    <AssociationSet Name="FK__details__name__44952D46" Association="clientesBDModel.FK__details__name__44952D46">
+      <End Role="type_of_expenses" EntitySet="type_of_expenses" />
+      <End Role="details" EntitySet="details1" />
+    </AssociationSet>
     <EntitySet Name="v_expense" EntityType="clientesBDModel.v_expense" />
   </EntityContainer>
   <EntityType Name="v_clients">
@@ -109,6 +82,61 @@
     <Property Name="idFatura" Type="Int32" />
     <Property Name="fotopath" Type="String" MaxLength="350" FixedLength="true" Unicode="true" />
   </EntityType>
+  <EntityType Name="expense">
+    <Key>
+      <PropertyRef Name="idfatura" />
+    </Key>
+    <Property Name="idfatura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idcli" Type="Int32" />
+    <Property Name="dataFirstPayment" Type="DateTime" Precision="0" />
+    <Property Name="type_Of_Expense" Type="Int32" />
+    <Property Name="type_Of_Payment" Type="Int32" />
+    <NavigationProperty Name="client" Relationship="clientesBDModel.FK__expense__idcli__5DCAEF64" FromRole="expense" ToRole="client" />
+    <NavigationProperty Name="details" Relationship="clientesBDModel.FK__details__idfatur__72C60C4A" FromRole="expense" ToRole="details" />
+  </EntityType>
+  <Association Name="FK__expense__idcli__5DCAEF64">
+    <End Type="clientesBDModel.client" Role="client" Multiplicity="0..1" />
+    <End Type="clientesBDModel.expense" Role="expense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="client">
+        <PropertyRef Name="idcli" />
+      </Principal>
+      <Dependent Role="expense">
+        <PropertyRef Name="idcli" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__details__idfatur__72C60C4A">
+    <End Type="clientesBDModel.expense" Role="expense" Multiplicity="0..1" />
+    <End Type="clientesBDModel.details" Role="details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="expense">
+        <PropertyRef Name="idfatura" />
+      </Principal>
+      <Dependent Role="details">
+        <PropertyRef Name="idfatura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="type_of_expenses">
+    <Key>
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="details" Relationship="clientesBDModel.FK__details__name__44952D46" FromRole="type_of_expenses" ToRole="details" />
+  </EntityType>
+  <Association Name="FK__details__name__44952D46">
+    <End Type="clientesBDModel.type_of_expenses" Role="type_of_expenses" Multiplicity="0..1" />
+    <End Type="clientesBDModel.details" Role="details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="type_of_expenses">
+        <PropertyRef Name="name" />
+      </Principal>
+      <Dependent Role="details">
+        <PropertyRef Name="name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityType Name="v_expense">
     <Key>
       <PropertyRef Name="idfatura" />
@@ -120,5 +148,8 @@
     <Property Name="type_Of_Payment" Type="Int32" />
     <Property Name="date_payment" Type="DateTime" Precision="0" />
     <Property Name="value_Of_Paymente" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="actual_payment" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="is_payed" Type="Boolean" />
   </EntityType>
 </Schema>

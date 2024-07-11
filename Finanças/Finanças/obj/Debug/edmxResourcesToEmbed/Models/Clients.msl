@@ -16,24 +16,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="details">
-      <EntityTypeMapping TypeName="clientesBDModel.detail">
+    <EntitySetMapping Name="details1">
+      <EntityTypeMapping TypeName="clientesBDModel.details">
         <MappingFragment StoreEntitySet="details">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="actual_payment" ColumnName="actual_payment" />
+          <ScalarProperty Name="is_payed" ColumnName="is_payed" />
           <ScalarProperty Name="idfaturadet" ColumnName="idfaturadet" />
           <ScalarProperty Name="idfatura" ColumnName="idfatura" />
           <ScalarProperty Name="date_payment" ColumnName="date_payment" />
           <ScalarProperty Name="value_Of_Paymente" ColumnName="value_Of_Paymente" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="expenses">
-      <EntityTypeMapping TypeName="clientesBDModel.expense">
-        <MappingFragment StoreEntitySet="expense">
-          <ScalarProperty Name="idfatura" ColumnName="idfatura" />
-          <ScalarProperty Name="idcli" ColumnName="idcli" />
-          <ScalarProperty Name="dataFirstPayment" ColumnName="dataFirstPayment" />
-          <ScalarProperty Name="type_Of_Expense" ColumnName="type_Of_Expense" />
-          <ScalarProperty Name="type_Of_Payment" ColumnName="type_Of_Payment" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -52,9 +44,30 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="expenses">
+      <EntityTypeMapping TypeName="clientesBDModel.expense">
+        <MappingFragment StoreEntitySet="expense">
+          <ScalarProperty Name="type_Of_Payment" ColumnName="type_Of_Payment" />
+          <ScalarProperty Name="type_Of_Expense" ColumnName="type_Of_Expense" />
+          <ScalarProperty Name="dataFirstPayment" ColumnName="dataFirstPayment" />
+          <ScalarProperty Name="idcli" ColumnName="idcli" />
+          <ScalarProperty Name="idfatura" ColumnName="idfatura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="type_of_expenses">
+      <EntityTypeMapping TypeName="clientesBDModel.type_of_expenses">
+        <MappingFragment StoreEntitySet="type_of_expenses">
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="v_expense">
       <EntityTypeMapping TypeName="clientesBDModel.v_expense">
         <MappingFragment StoreEntitySet="v_expense">
+          <ScalarProperty Name="is_payed" ColumnName="is_payed" />
+          <ScalarProperty Name="actual_payment" ColumnName="actual_payment" />
+          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="value_Of_Paymente" ColumnName="value_Of_Paymente" />
           <ScalarProperty Name="date_payment" ColumnName="date_payment" />
           <ScalarProperty Name="type_Of_Payment" ColumnName="type_Of_Payment" />

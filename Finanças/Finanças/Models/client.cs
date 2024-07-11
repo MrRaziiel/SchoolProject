@@ -11,24 +11,19 @@ namespace Finanças.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class client
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public client()
         {
-            this.expenses = new HashSet<expense>();
             this.clients1 = new HashSet<client>();
+            this.expenses = new HashSet<expense>();
         }
-
-
+    
         public int idcli { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
-
-        [MaxLength(20, ErrorMessage = "Too long")]
-        [RegularExpression(@"^[A-Z](\w*\s?)*$", ErrorMessage = "Don't have capital letters")]
         public string password { get; set; }
         public string role { get; set; }
         public Nullable<System.DateTime> datanasc { get; set; }
@@ -37,9 +32,9 @@ namespace Finanças.Models
         public string fotopath { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<expense> expenses { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<client> clients1 { get; set; }
         public virtual client client1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<expense> expenses { get; set; }
     }
 }

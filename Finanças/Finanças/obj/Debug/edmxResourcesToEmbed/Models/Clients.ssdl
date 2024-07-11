@@ -22,6 +22,9 @@
     <Property Name="idfatura" Type="int" />
     <Property Name="date_payment" Type="date" />
     <Property Name="value_Of_Paymente" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="is_payed" Type="bit" />
+    <Property Name="actual_payment" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="name" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="expense">
     <Key>
@@ -32,6 +35,12 @@
     <Property Name="dataFirstPayment" Type="date" />
     <Property Name="type_Of_Expense" Type="int" />
     <Property Name="type_Of_Payment" Type="int" />
+  </EntityType>
+  <EntityType Name="type_of_expenses">
+    <Key>
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJECT\FINANÇAS\FINANÇAS\APP_DATA\CLIENTESBD.MDF.dbo.v_clients' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -63,6 +72,9 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
     <Property Name="type_Of_Payment" Type="int" />
     <Property Name="date_payment" Type="date" />
     <Property Name="value_Of_Paymente" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="name" Type="varchar" MaxLength="255" />
+    <Property Name="actual_payment" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="is_payed" Type="bit" />
   </EntityType>
   <Association Name="FK__details__idfatur__72C60C4A">
     <End Role="expense" Type="Self.expense" Multiplicity="0..1" />
@@ -73,6 +85,18 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
       </Principal>
       <Dependent Role="details">
         <PropertyRef Name="idfatura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__details__name__44952D46">
+    <End Role="type_of_expenses" Type="Self.type_of_expenses" Multiplicity="0..1" />
+    <End Role="details" Type="Self.details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="type_of_expenses">
+        <PropertyRef Name="name" />
+      </Principal>
+      <Dependent Role="details">
+        <PropertyRef Name="name" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -104,6 +128,7 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
     <EntitySet Name="clients" EntityType="Self.clients" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="details" EntityType="Self.details" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="expense" EntityType="Self.expense" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="type_of_expenses" EntityType="Self.type_of_expenses" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="v_clients" EntityType="Self.v_clients" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [v_clients].[idcli] AS [idcli], 
@@ -125,11 +150,18 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
     [v_expense].[type_Of_Expense] AS [type_Of_Expense], 
     [v_expense].[type_Of_Payment] AS [type_Of_Payment], 
     [v_expense].[date_payment] AS [date_payment], 
-    [v_expense].[value_Of_Paymente] AS [value_Of_Paymente]
+    [v_expense].[value_Of_Paymente] AS [value_Of_Paymente], 
+    [v_expense].[name] AS [name], 
+    [v_expense].[actual_payment] AS [actual_payment], 
+    [v_expense].[is_payed] AS [is_payed]
     FROM [dbo].[v_expense] AS [v_expense]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK__details__idfatur__72C60C4A" Association="Self.FK__details__idfatur__72C60C4A">
       <End Role="expense" EntitySet="expense" />
+      <End Role="details" EntitySet="details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__details__name__44952D46" Association="Self.FK__details__name__44952D46">
+      <End Role="type_of_expenses" EntitySet="type_of_expenses" />
       <End Role="details" EntitySet="details" />
     </AssociationSet>
     <AssociationSet Name="FK__expense__idcli__5DCAEF64" Association="Self.FK__expense__idcli__5DCAEF64">
