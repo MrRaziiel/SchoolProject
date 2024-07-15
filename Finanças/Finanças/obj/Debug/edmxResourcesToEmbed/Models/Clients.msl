@@ -78,5 +78,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="type_Of_Payment">
+      <EntityTypeMapping TypeName="clientesBDModel.type_Of_Payment">
+        <MappingFragment StoreEntitySet="type_Of_Payment">
+          <ScalarProperty Name="payment" ColumnName="payment" />
+          <ScalarProperty Name="idpayment" ColumnName="idpayment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

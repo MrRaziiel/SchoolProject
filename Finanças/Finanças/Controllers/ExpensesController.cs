@@ -15,6 +15,11 @@ namespace Finanças.Controllers
         {
             using (clientesBDEntities3 db = new clientesBDEntities3())
             {
+                var expenses = db.type_of_expenses.ToList();
+                ViewBag.Expenses = new SelectList(expenses, "name", "name");
+                var fees = db.type_Of_Payment.ToList();
+                ViewBag.Fees = new SelectList(fees, "idpayment", "payment");
+
                 return View();
             }
         }
@@ -24,6 +29,7 @@ namespace Finanças.Controllers
         {
             using (clientesBDEntities3 db = new clientesBDEntities3())
             {
+                new_expense.idcli = id;
                 db.expenses.Add(new_expense);
                
                 return View();

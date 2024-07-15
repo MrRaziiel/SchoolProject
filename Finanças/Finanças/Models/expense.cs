@@ -29,5 +29,6 @@ namespace Finanças.Models
         public virtual client client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<details> details { get; set; }
+        public virtual type_Of_Payment type_Of_Payment1 { get; set; }
     }
 }

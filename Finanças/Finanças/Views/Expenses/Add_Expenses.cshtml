@@ -1,7 +1,7 @@
 ﻿@model Finanças.Models.v_expense
 
-<h2>NEW EXPENSE</h2>
-@using (Html.BeginForm())
+<h2>NEW EXPENSE @ViewBag.id</h2>
+@using (Html.BeginForm("Add_Expenses", "Expenses", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -12,73 +12,73 @@
     <div class="form-horizontal gradient-bg">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group mb-2">
+        <div class="form-group mb-2 text-center">
             <b>DESCRIPTION</b>
-            <div class="col-md-10 mt-2">
-                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-10 mt-2 mx-auto">
+                @Html.TextBoxFor(model => model.name, new { @class = "form-control", style = "width: 100%; max-width: 100%;" })
                 @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="row mb-2 ">
+            <div class="col col-sm-6 text-center">
+                <b>AMONTANT OF PAYMENTE</b>
+                <div class="col-sm-5 mt-2  mx-auto ">
+                    @Html.EditorFor(model => model.value_Of_Paymente, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.value_Of_Paymente, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-        <div class="form-group mb-2">
-            <b>FIRST PAYMENTE</b>
-            <div class="col-md-10 mt-2">
 
-                @Html.EditorFor(model => model.dataFirstPayment, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.dataFirstPayment, "", new { @class = "text-danger" })
+            <div class="col col-sm-6 text-center">
+                <b>AMOUNT PAYED</b>
+                <div class="col-sm-5 mt-2 mx-auto ">
+                    @Html.EditorFor(model => model.actual_payment, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.actual_payment, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
+        <div class="row mb-2 ">
+            <div class="col col-sm-6 text-center">
+                <b>FIRST PAYMENTE</b>
+                <div class="col-sm-5 mt-2  mx-auto ">
 
-        <div class="form-group mb-2">
-            <b>TYPE OF EXPENSES</b>
-            <div class="col-md-10 mt-2">
-                @Html.EditorFor(model => model.type_Of_Expense, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.type_Of_Expense, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.dataFirstPayment, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                    @Html.ValidationMessageFor(model => model.dataFirstPayment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col col-sm-6 text-center">
+                <b>PAY DAY</b>
+                <div class="col-sm-5 mt-2  mx-auto ">
+                    @Html.EditorFor(model => model.date_payment, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                    @Html.ValidationMessageFor(model => model.date_payment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+        <div class="row mb-2 ">
+            <div class="col col-sm-6 text-center">
+                <b>TYPE FEE</b>
+                <div class="col-sm-5 mt-2  mx-auto ">
+                    @Html.DropDownListFor(model => model.type_Of_Payment, ViewBag.Fees as SelectList, new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.type_Of_Payment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col col-sm-6 text-center">
+                <b>CATEGORY</b>
+                <div class="col-sm-5 mt-2  mx-auto ">
+                    @Html.DropDownListFor(model => model.name, ViewBag.Expenses as SelectList, new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
-
-        <div class="form-group mb-2">
-            <b>TYPE OF PAYMENTE</b>
-            <div class="col-md-10 mt-2">
-                @Html.EditorFor(model => model.type_Of_Payment, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.type_Of_Payment, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group mb-2">
-            <b>DAY OF PAYMENTE</b>
-            <div class="col-md-10 mt-2">
-                @Html.EditorFor(model => model.date_payment, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.date_payment, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group mb-2">
-            <b>AMONTANT OF PAYMENTE</b>
-            <div class="col-md-10 mt-2">
-                @Html.EditorFor(model => model.value_Of_Paymente, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.value_Of_Paymente, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-        <div class="form-group mb-2">
-            <b>AMOUNT PAYED</b>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.actual_payment, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.actual_payment, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-success" />
             </div>
         </div>
     </div>
-  
+
 }
 
 <div>

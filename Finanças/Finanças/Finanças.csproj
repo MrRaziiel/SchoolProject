@@ -208,6 +208,9 @@
     <Compile Include="Models\type_of_expenses.cs">
       <DependentUpon>Clients.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\type_Of_Payment.cs">
+      <DependentUpon>Clients.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\v_clients.cs">
       <DependentUpon>Clients.tt</DependentUpon>
     </Compile>

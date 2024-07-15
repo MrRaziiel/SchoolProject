@@ -31,5 +31,6 @@ namespace Finanças.Models
         public virtual DbSet<expense> expenses { get; set; }
         public virtual DbSet<type_of_expenses> type_of_expenses { get; set; }
         public virtual DbSet<v_expense> v_expense { get; set; }
+        public virtual DbSet<type_Of_Payment> type_Of_Payment { get; set; }
     }
 }

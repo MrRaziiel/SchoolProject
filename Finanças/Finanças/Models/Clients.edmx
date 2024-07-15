@@ -4,38 +4,38 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="clientesBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="clientesBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
         <EntityType Name="clients">
           <Key>
             <PropertyRef Name="idcli" />
           </Key>
-          <Property Name="idcli" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="firstName" Type="nvarchar" MaxLength="50" />
-          <Property Name="lastName" Type="nvarchar" MaxLength="50" />
-          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="role" Type="nvarchar" MaxLength="50" />
+          <Property Name="idcli" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="firstName" MaxLength="50" Type="nvarchar" />
+          <Property Name="lastName" MaxLength="50" Type="nvarchar" />
+          <Property Name="password" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="role" MaxLength="50" Type="nvarchar" />
           <Property Name="datanasc" Type="date" />
-          <Property Name="age" Type="numeric" Precision="18" Scale="6" StoreGeneratedPattern="Computed" />
+          <Property Name="age" Precision="18" Scale="6" StoreGeneratedPattern="Computed" Type="numeric" />
           <Property Name="idFatura" Type="int" />
-          <Property Name="fotopath" Type="nchar" MaxLength="350" />
+          <Property Name="fotopath" MaxLength="350" Type="nchar" />
         </EntityType>
         <EntityType Name="details">
           <Key>
             <PropertyRef Name="idfaturadet" />
           </Key>
-          <Property Name="idfaturadet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idfaturadet" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="idfatura" Type="int" />
           <Property Name="date_payment" Type="date" />
-          <Property Name="value_Of_Paymente" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="value_Of_Paymente" Precision="10" Scale="2" Type="decimal" />
           <Property Name="is_payed" Type="bit" />
-          <Property Name="actual_payment" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="actual_payment" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="name" MaxLength="255" Type="varchar" />
         </EntityType>
         <EntityType Name="expense">
           <Key>
             <PropertyRef Name="idfatura" />
           </Key>
-          <Property Name="idfatura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idfatura" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="idcli" Type="int" />
           <Property Name="dataFirstPayment" Type="date" />
           <Property Name="type_Of_Expense" Type="int" />
@@ -45,7 +45,14 @@
           <Key>
             <PropertyRef Name="name" />
           </Key>
-          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="name" Nullable="false" MaxLength="255" Type="varchar" />
+        </EntityType>
+        <EntityType Name="type_Of_Payment">
+          <Key>
+            <PropertyRef Name="idpayment" />
+          </Key>
+          <Property Name="idpayment" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="payment" MaxLength="50" Type="varchar" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJECT\FINANÇAS\FINANÇAS\APP_DATA\CLIENTESBD.MDF.dbo.v_clients' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -54,15 +61,15 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
             <PropertyRef Name="idcli" />
             <PropertyRef Name="password" />
           </Key>
-          <Property Name="idcli" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="firstName" Type="nvarchar" MaxLength="50" />
-          <Property Name="lastName" Type="nvarchar" MaxLength="50" />
-          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="role" Type="nvarchar" MaxLength="50" />
+          <Property Name="idcli" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="firstName" MaxLength="50" Type="nvarchar" />
+          <Property Name="lastName" MaxLength="50" Type="nvarchar" />
+          <Property Name="password" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="role" MaxLength="50" Type="nvarchar" />
           <Property Name="datanasc" Type="date" />
-          <Property Name="age" Type="numeric" Precision="18" Scale="6" />
+          <Property Name="age" Precision="18" Scale="6" Type="numeric" />
           <Property Name="idFatura" Type="int" />
-          <Property Name="fotopath" Type="nchar" MaxLength="350" />
+          <Property Name="fotopath" MaxLength="350" Type="nchar" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJECT\FINANÇAS\FINANÇAS\APP_DATA\CLIENTESBD.MDF.dbo.v_expense' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -70,20 +77,20 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
           <Key>
             <PropertyRef Name="idfatura" />
           </Key>
-          <Property Name="idfatura" Type="int" Nullable="false" />
+          <Property Name="idfatura" Nullable="false" Type="int" />
           <Property Name="idcli" Type="int" />
           <Property Name="dataFirstPayment" Type="date" />
           <Property Name="type_Of_Expense" Type="int" />
           <Property Name="type_Of_Payment" Type="int" />
           <Property Name="date_payment" Type="date" />
-          <Property Name="value_Of_Paymente" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="actual_payment" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="value_Of_Paymente" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="name" MaxLength="255" Type="varchar" />
+          <Property Name="actual_payment" Precision="10" Scale="2" Type="decimal" />
           <Property Name="is_payed" Type="bit" />
         </EntityType>
         <Association Name="FK__details__idfatur__72C60C4A">
-          <End Role="expense" Type="Self.expense" Multiplicity="0..1" />
-          <End Role="details" Type="Self.details" Multiplicity="*" />
+          <End Type="Self.expense" Multiplicity="0..1" Role="expense" />
+          <End Type="Self.details" Multiplicity="*" Role="details" />
           <ReferentialConstraint>
             <Principal Role="expense">
               <PropertyRef Name="idfatura" />
@@ -94,8 +101,8 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__details__name__44952D46">
-          <End Role="type_of_expenses" Type="Self.type_of_expenses" Multiplicity="0..1" />
-          <End Role="details" Type="Self.details" Multiplicity="*" />
+          <End Type="Self.type_of_expenses" Multiplicity="0..1" Role="type_of_expenses" />
+          <End Type="Self.details" Multiplicity="*" Role="details" />
           <ReferentialConstraint>
             <Principal Role="type_of_expenses">
               <PropertyRef Name="name" />
@@ -106,8 +113,8 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__expense__idcli__5DCAEF64">
-          <End Role="clients" Type="Self.clients" Multiplicity="0..1" />
-          <End Role="expense" Type="Self.expense" Multiplicity="*" />
+          <End Type="Self.clients" Multiplicity="0..1" Role="clients" />
+          <End Type="Self.expense" Multiplicity="*" Role="expense" />
           <ReferentialConstraint>
             <Principal Role="clients">
               <PropertyRef Name="idcli" />
@@ -117,9 +124,21 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__expense__type_Of__5FB337D6">
+          <End Type="Self.type_Of_Payment" Multiplicity="0..1" Role="type_Of_Payment" />
+          <End Type="Self.expense" Multiplicity="*" Role="expense" />
+          <ReferentialConstraint>
+            <Principal Role="type_Of_Payment">
+              <PropertyRef Name="idpayment" />
+            </Principal>
+            <Dependent Role="expense">
+              <PropertyRef Name="type_Of_Payment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fkclientsclients">
-          <End Role="clients" Type="Self.clients" Multiplicity="0..1" />
-          <End Role="clients1" Type="Self.clients" Multiplicity="*" />
+          <End Type="Self.clients" Multiplicity="0..1" Role="clients" />
+          <End Type="Self.clients" Multiplicity="*" Role="clients1" />
           <ReferentialConstraint>
             <Principal Role="clients">
               <PropertyRef Name="idcli" />
@@ -134,6 +153,7 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
           <EntitySet Name="details" EntityType="Self.details" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="expense" EntityType="Self.expense" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="type_of_expenses" EntityType="Self.type_of_expenses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="type_Of_Payment" EntityType="Self.type_Of_Payment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="v_clients" EntityType="Self.v_clients" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_clients].[idcli] AS [idcli], 
@@ -162,20 +182,24 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
     FROM [dbo].[v_expense] AS [v_expense]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__details__idfatur__72C60C4A" Association="Self.FK__details__idfatur__72C60C4A">
-            <End Role="expense" EntitySet="expense" />
-            <End Role="details" EntitySet="details" />
+            <End EntitySet="expense" Role="expense" />
+            <End EntitySet="details" Role="details" />
           </AssociationSet>
           <AssociationSet Name="FK__details__name__44952D46" Association="Self.FK__details__name__44952D46">
-            <End Role="type_of_expenses" EntitySet="type_of_expenses" />
-            <End Role="details" EntitySet="details" />
+            <End EntitySet="type_of_expenses" Role="type_of_expenses" />
+            <End EntitySet="details" Role="details" />
           </AssociationSet>
           <AssociationSet Name="FK__expense__idcli__5DCAEF64" Association="Self.FK__expense__idcli__5DCAEF64">
-            <End Role="clients" EntitySet="clients" />
-            <End Role="expense" EntitySet="expense" />
+            <End EntitySet="clients" Role="clients" />
+            <End EntitySet="expense" Role="expense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__expense__type_Of__5FB337D6" Association="Self.FK__expense__type_Of__5FB337D6">
+            <End EntitySet="type_Of_Payment" Role="type_Of_Payment" />
+            <End EntitySet="expense" Role="expense" />
           </AssociationSet>
           <AssociationSet Name="fkclientsclients" Association="Self.fkclientsclients">
-            <End Role="clients" EntitySet="clients" />
-            <End Role="clients1" EntitySet="clients" />
+            <End EntitySet="clients" Role="clients" />
+            <End EntitySet="clients" Role="clients1" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -248,6 +272,11 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
             <End Role="details" EntitySet="details1" />
           </AssociationSet>
           <EntitySet Name="v_expense" EntityType="clientesBDModel.v_expense" />
+          <EntitySet Name="type_Of_Payment" EntityType="clientesBDModel.type_Of_Payment" />
+          <AssociationSet Name="FK__expense__type_Of__5FB337D6" Association="clientesBDModel.FK__expense__type_Of__5FB337D6">
+            <End EntitySet="type_Of_Payment" Role="type_Of_Payment" />
+            <End EntitySet="expenses" Role="expense" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="v_clients">
           <Key>
@@ -275,6 +304,7 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
           <Property Name="type_Of_Payment" Type="Int32" />
           <NavigationProperty Name="client" Relationship="clientesBDModel.FK__expense__idcli__5DCAEF64" FromRole="expense" ToRole="client" />
           <NavigationProperty Name="details" Relationship="clientesBDModel.FK__details__idfatur__72C60C4A" FromRole="expense" ToRole="details" />
+          <NavigationProperty Name="type_Of_Payment1" Relationship="clientesBDModel.FK__expense__type_Of__5FB337D6" FromRole="expense" ToRole="type_Of_Payment" />
         </EntityType>
         <Association Name="FK__expense__idcli__5DCAEF64">
           <End Type="clientesBDModel.client" Role="client" Multiplicity="0..1" />
@@ -334,6 +364,26 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
           <Property Name="actual_payment" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="is_payed" Type="Boolean" />
         </EntityType>
+        <EntityType Name="type_Of_Payment">
+          <Key>
+            <PropertyRef Name="idpayment" />
+          </Key>
+          <Property Name="idpayment" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="payment" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <NavigationProperty Name="expenses" Relationship="clientesBDModel.FK__expense__type_Of__5FB337D6" FromRole="type_Of_Payment" ToRole="expense" />
+        </EntityType>
+        <Association Name="FK__expense__type_Of__5FB337D6">
+          <End Type="clientesBDModel.type_Of_Payment" Multiplicity="0..1" Role="type_Of_Payment" />
+          <End Type="clientesBDModel.expense" Multiplicity="*" Role="expense" />
+          <ReferentialConstraint>
+            <Principal Role="type_Of_Payment">
+              <PropertyRef Name="idpayment" />
+            </Principal>
+            <Dependent Role="expense">
+              <PropertyRef Name="type_Of_Payment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -414,6 +464,14 @@ warning 6002: The table/view 'D:\FACULDADE\TECNOLOGIAS DA INTERNET 3\SCHOOLPROJE
                 <ScalarProperty Name="dataFirstPayment" ColumnName="dataFirstPayment" />
                 <ScalarProperty Name="idcli" ColumnName="idcli" />
                 <ScalarProperty Name="idfatura" ColumnName="idfatura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type_Of_Payment">
+            <EntityTypeMapping TypeName="clientesBDModel.type_Of_Payment">
+              <MappingFragment StoreEntitySet="type_Of_Payment">
+                <ScalarProperty Name="payment" ColumnName="payment" />
+                <ScalarProperty Name="idpayment" ColumnName="idpayment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

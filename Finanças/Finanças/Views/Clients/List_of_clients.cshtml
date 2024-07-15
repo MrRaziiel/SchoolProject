@@ -130,3 +130,18 @@
     }
 </style>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    if (typeof jQuery == 'undefined') {
+        console.log("jQuery did not load");
+    } else {
+        $(document).ready(function () {
+            console.log("jQuery is loaded and document is ready");
+            $("#createbtn").click(function (evt) {
+                evt = evt ? evt : window.event
+                evt.preventDefault();
+                alert("Button clicked, ID: " + $(this).attr('id') + evt.target.id);
+            });
+        });
+    }
+</script>

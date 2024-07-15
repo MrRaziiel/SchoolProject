@@ -22,16 +22,15 @@ namespace Finanças.Models
         }
     
         public int idcli { get; set; }
-        [Required]
         public string firstName { get; set; }
-        [Required]
         public string lastName { get; set; }
+        public string password { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
+        [Display(Name = "Confirm Password")]
         [Compare("password", ErrorMessage = "The password and confirmation password do not match.")]
         public string confirmPassword { get; set; }
-        [Required]
-        public string password { get; set; }
         public string role { get; set; }
         public Nullable<System.DateTime> datanasc { get; set; }
         public Nullable<decimal> age { get; set; }

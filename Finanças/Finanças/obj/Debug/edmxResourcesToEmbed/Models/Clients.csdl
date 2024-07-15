@@ -66,6 +66,11 @@
       <End Role="details" EntitySet="details1" />
     </AssociationSet>
     <EntitySet Name="v_expense" EntityType="clientesBDModel.v_expense" />
+    <EntitySet Name="type_Of_Payment" EntityType="clientesBDModel.type_Of_Payment" />
+    <AssociationSet Name="FK__expense__type_Of__5FB337D6" Association="clientesBDModel.FK__expense__type_Of__5FB337D6">
+      <End EntitySet="type_Of_Payment" Role="type_Of_Payment" />
+      <End EntitySet="expenses" Role="expense" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="v_clients">
     <Key>
@@ -93,6 +98,7 @@
     <Property Name="type_Of_Payment" Type="Int32" />
     <NavigationProperty Name="client" Relationship="clientesBDModel.FK__expense__idcli__5DCAEF64" FromRole="expense" ToRole="client" />
     <NavigationProperty Name="details" Relationship="clientesBDModel.FK__details__idfatur__72C60C4A" FromRole="expense" ToRole="details" />
+    <NavigationProperty Name="type_Of_Payment1" Relationship="clientesBDModel.FK__expense__type_Of__5FB337D6" FromRole="expense" ToRole="type_Of_Payment" />
   </EntityType>
   <Association Name="FK__expense__idcli__5DCAEF64">
     <End Type="clientesBDModel.client" Role="client" Multiplicity="0..1" />
@@ -152,4 +158,24 @@
     <Property Name="actual_payment" Type="Decimal" Precision="10" Scale="2" />
     <Property Name="is_payed" Type="Boolean" />
   </EntityType>
+  <EntityType Name="type_Of_Payment">
+    <Key>
+      <PropertyRef Name="idpayment" />
+    </Key>
+    <Property Name="idpayment" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="payment" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="expenses" Relationship="clientesBDModel.FK__expense__type_Of__5FB337D6" FromRole="type_Of_Payment" ToRole="expense" />
+  </EntityType>
+  <Association Name="FK__expense__type_Of__5FB337D6">
+    <End Type="clientesBDModel.type_Of_Payment" Multiplicity="0..1" Role="type_Of_Payment" />
+    <End Type="clientesBDModel.expense" Multiplicity="*" Role="expense" />
+    <ReferentialConstraint>
+      <Principal Role="type_Of_Payment">
+        <PropertyRef Name="idpayment" />
+      </Principal>
+      <Dependent Role="expense">
+        <PropertyRef Name="type_Of_Payment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
