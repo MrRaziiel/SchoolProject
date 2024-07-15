@@ -9,71 +9,97 @@
 @using (Html.BeginForm("Add_client", "Clients", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
+    <hr />
 
-    <div class="form-horizontal">
-        <hr />
+    <div class="form-horizontal gradient-bg">
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group mb-2">
-            <b>FIRST NAME</b>
-            <div class="col-md-10 mt-2">
-                @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+        <div class="clients-grid row">
+            <div class="col col-lg-8">
+                <div class="form-group  mb-2">
+                    <div class="row">
+                        <div class="col col-sm-6">
+                            <b>FIRST NAME</b>
+                            <div class="col-md-10 mt-2">
+                                @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col">
+
+                            <b>LAST NAME</b>
+                            <div class="col-md-10 mt-2">
+                                @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-sm-6 mt-2">
+                            <b>PASSWORD</b>
+                            <div class="col-md-10 mt-2">
+                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col mt-2">
+
+                            <b>CONFIRM PASSWORD</b>
+                            <div class="col-md-10 mt-2">
+                                @Html.EditorFor(model => model.confirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mb-2">
+                    <b>ROLES</b>
+                    <div class="col-md-10 mt-2">
+                        @Html.DropDownListFor(model => model.role, ViewBag.roles as IEnumerable<SelectListItem>, new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.role, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group mb-2">
+                    <b>BIRTH DAY</b>
+                    <div class="col-md-10 mt-2">
+                        @Html.TextBoxFor(model => model.datanasc, new { @class = "form-control", type = "date" })
+                        @Html.ValidationMessageFor(model => model.datanasc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col col-sm">
+                        <input type="reset" value="CLEAR" class="btn btn-danger mt-2" />
+                        <input type="submit" value="CREATE" class="btn btn-success mt-2" />
+
+                    </div>
+
+
+                </div>
+                <br />
+                <br />
+
             </div>
-        </div>
+            <div class="col">
 
-        <div class="form-group mb-2">
-            <b>LAST NAME</b>
-            <div class="col-md-10 mt-2">
-                @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group mb-2">
-            <b>PASSWORD</b>
-                <div class="col-md-10 mt-2">
-                    @Html.PasswordFor(model => model.password, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
-                </div>
-</div>
-
-        <div class="form-group mb-2">
-            <b>ROLE</b>
-                <div class="col-md-10 mt-2">
-                    @Html.DropDownListFor(model => model.role, ViewBag.roles as SelectList, new { @class = "form-select" })
-                    @Html.ValidationMessageFor(model => model.role, "", new { @class = "text-danger" })
-                </div>
-</div>
-
-        <div class="form-group mb-2">
-            <b>BIRTH DAY</b>
-                <div class="col-md-10 mt-2">
-                    @Html.TextBoxFor(model => model.datanasc, new { @class = "form-control", type = "date" })
-                    @Html.ValidationMessageFor(model => model.datanasc, "", new { @class = "text-danger" })
-                </div>
-</div>
-
-        <div class="form-group">
-            <b>PHOTO</b>
+                <b>PHOTO</b>
                 <div class="col-md-10 mt-2">
                     <input type="file" id="fich" name="fich" class="form-control" onchange="previewImage(event)" />
                     @Html.ValidationMessageFor(model => model.fotopath, "", new { @class = "text-danger client-photo" })
                     <!-- Image preview -->
-                    <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 40em; height: auto; margin-top: 10px;" />
+                    <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 20em; height: 8em; margin-top: 10px;" />
                 </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="CREATE" class="btn btn-success mt-2" />
             </div>
         </div>
     </div>
+    <button type="button" class="btn btn-info mt-2" onclick="location.href='@Url.Action("List_of_clients", "Clients")'">BACK TO LIST</button>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "List_of_clients", "Clients")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
@@ -97,8 +123,8 @@
 }
 <style>
     .client-photo img {
-        width: 80em;
-        height: 80em;
+        width: 20em;
+        height: 20em;
     }
 
     /*    .actions {
@@ -111,9 +137,8 @@
     }
 
     .gradient-bg {
-        background: linear-gradient(to right, #80dfff, #0033cc); /* Adjust colors and direction as needed */
-        color: white; /* Optional: text color */
-        padding: 20px; /* Optional: padding inside the div */
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        padding: 20px;
     }
 </style>
 

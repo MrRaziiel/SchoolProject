@@ -11,7 +11,7 @@ namespace Finanças.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class client
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,8 +22,15 @@ namespace Finanças.Models
         }
     
         public int idcli { get; set; }
+        [Required]
         public string firstName { get; set; }
+        [Required]
         public string lastName { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        [Compare("password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string confirmPassword { get; set; }
+        [Required]
         public string password { get; set; }
         public string role { get; set; }
         public Nullable<System.DateTime> datanasc { get; set; }

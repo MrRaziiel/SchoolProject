@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Finanças.Models.v_expense>
+
+<p>
+    <a href="@Url.Action("Add_Expenses", "Expenses")" class="btn btn-success">
+        NEW EXPENSE
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idcli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataFirstPayment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type_Of_Expense)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type_Of_Payment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_payment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.value_Of_Paymente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.actual_payment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_payed)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idcli)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataFirstPayment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type_Of_Expense)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type_Of_Payment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_payment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.value_Of_Paymente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.actual_payment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_payed)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idfatura }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idfatura }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idfatura })
+        </td>
+    </tr>
+}
+
+</table>

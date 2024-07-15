@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Finanças.Helpers;
 using Finanças.Models;
 
 namespace Finanças.Controllers
@@ -81,12 +80,12 @@ namespace Finanças.Controllers
         [HttpPost]
         public ActionResult Edit_client(client editClient, HttpPostedFileBase fich)
         {
-
             using (clientesBDEntities3 db = new clientesBDEntities3())
             {
                 client client_to_edited = db.clients.Find(editClient.idcli);
                 if (client_to_edited != null)
                 {
+                    // Handle the file upload if a new file is provided
                     if (fich != null && fich.FileName.Length > 0 && fich.ContentType.Contains("image"))
                     {
                         string path = Server.MapPath("~/Photos/");
@@ -94,17 +93,24 @@ namespace Finanças.Controllers
                         client_to_edited.fotopath = filepath;
                         path = System.IO.Path.Combine(path, filepath);
                         fich.SaveAs(path);
-
-                        // Update the client with the file path
-                        db.Entry(client_to_edited).State = System.Data.Entity.EntityState.Modified;
                     }
-                    changingAnyObjects.UpdatePropertyValues(editClient, client_to_edited);
+                    var editClientProperties = typeof(client).GetProperties();
+                    foreach (var property in editClientProperties)
+                    {
+                        
+                        if (property.Name == "fotopath")
+                            continue;
+
+                        var newValue = property.GetValue(editClient);
+                        property.SetValue(client_to_edited, newValue);
+                    }
+
+                    // Save the changes to the database
+                    db.Entry(client_to_edited).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
                 return RedirectToAction("Detail_client", "Clients", new { id = editClient.idcli });
             }
-
-
         }
 
         public ActionResult Detail_client(int? id)
@@ -140,7 +146,7 @@ namespace Finanças.Controllers
         }
 
 
-        public ActionResult Add_expenses_to_client(int? id)
+        public ActionResult List_of_expenses_to_client(int? id)
         {
             using (clientesBDEntities3 db = new clientesBDEntities3())
             {

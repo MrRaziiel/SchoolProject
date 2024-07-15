@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -19,11 +20,12 @@ namespace Finanças.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add_Expenses(int id)
+        public ActionResult Add_Expenses(expense new_expense, int id)
         {
             using (clientesBDEntities3 db = new clientesBDEntities3())
             {
-                List<v_expense> new_expenses = db.v_expense.ToList();
+                db.expenses.Add(new_expense);
+               
                 return View();
             }
         }

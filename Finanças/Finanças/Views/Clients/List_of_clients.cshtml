@@ -39,12 +39,15 @@
                         </tr>
                         <tr>
                             <th>BIRTH DAY:</th>
-                            <td class="text-center">@Html.DisplayFor(modelItem => item.datanasc)</td>
+                            <td class="text-center">
+                                @(item.datanasc.HasValue ? item.datanasc.Value.ToString("dd/MM/yyyy") : "")
+                            </td>
                         </tr>
                         <tr>
                             <th>AGE:</th>
-                            <td class="text-center">@Html.DisplayFor(modelItem => item.age)</td>
-                        </tr>
+                            <td class="text-center">
+                                @(item.age.HasValue ? Math.Floor((double)item.age.Value) : 0)
+                            </td>
                         <tr>
                             <th>PHOTO:</th>
                             <td class="client-photo text-center">

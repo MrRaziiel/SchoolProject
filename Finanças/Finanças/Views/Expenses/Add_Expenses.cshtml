@@ -1,65 +1,84 @@
 ﻿@model Finanças.Models.v_expense
 
-@{
-    ViewBag.Title = "Add_Expenses";
-}
-
-<h2>ADD EXPENSE</h2>
-
-
-@using (Html.BeginForm()) 
+<h2>NEW EXPENSE</h2>
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.idcli)
+    @Html.HiddenFor(model => model.is_payed)
     <hr />
 
-    <div class="form-group mb-2">
-        <b>FIRST DAYMENT</b>
-        <div class="col-md-10 mt-2">
-            @Html.TextBoxFor(model => model.dataFirstPayment, new { @class = "form-control", type = "date" })
-            @Html.ValidationMessageFor(model => model.dataFirstPayment, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    <div class="form-horizontal gradient-bg">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="form-group mb-2">
-        @Html.LabelFor(model => model.type_Of_Expense, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10 mt-2">
-            @Html.EditorFor(model => model.type_Of_Expense, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.type_Of_Expense, "", new { @class = "text-danger" })
+        <div class="form-group mb-2">
+            <b>DESCRIPTION</b>
+            <div class="col-md-10 mt-2">
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group mb-2">
-        @Html.LabelFor(model => model.type_Of_Payment, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10 mt-2">
-            @Html.EditorFor(model => model.type_Of_Payment, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.type_Of_Payment, "", new { @class = "text-danger" })
-        </div>
-    </div>
+        <div class="form-group mb-2">
+            <b>FIRST PAYMENTE</b>
+            <div class="col-md-10 mt-2">
 
-    <div class="form-group mb-2">
-        <b>PAYMENT DATE</b>
-        <div class="col-md-10 mt-2">
-            @Html.TextBoxFor(model => model.date_payment, new { @class = "form-control", type = "date" })
-            @Html.ValidationMessageFor(model => model.date_payment, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.dataFirstPayment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dataFirstPayment, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group mb-2">
-        @Html.LabelFor(model => model.value_Of_Paymente, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10 mt-2">
-            @Html.EditorFor(model => model.value_Of_Paymente, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.value_Of_Paymente, "", new { @class = "text-danger" })
+        <div class="form-group mb-2">
+            <b>TYPE OF EXPENSES</b>
+            <div class="col-md-10 mt-2">
+                @Html.EditorFor(model => model.type_Of_Expense, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.type_Of_Expense, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+        <div class="form-group mb-2">
+            <b>TYPE OF PAYMENTE</b>
+            <div class="col-md-10 mt-2">
+                @Html.EditorFor(model => model.type_Of_Payment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.type_Of_Payment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-2">
+            <b>DAY OF PAYMENTE</b>
+            <div class="col-md-10 mt-2">
+                @Html.EditorFor(model => model.date_payment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.date_payment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-2">
+            <b>AMONTANT OF PAYMENTE</b>
+            <div class="col-md-10 mt-2">
+                @Html.EditorFor(model => model.value_Of_Paymente, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.value_Of_Paymente, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group mb-2">
+            <b>AMOUNT PAYED</b>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.actual_payment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.actual_payment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
         </div>
     </div>
-</div>
+  
 }
 
 <div>
@@ -69,3 +88,19 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<style>
+    .client-photo img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .gap-2 {
+        gap: 10px;
+    }
+
+    .gradient-bg {
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        padding: 20px;
+    }
+</style>

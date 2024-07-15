@@ -7,92 +7,121 @@
 <h2>EDIT FORM</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit_client", "Clients", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.idcli)
+    <div class="form-horizontal gradient-bg">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.idcli)
 
-    <div class="form-group mb-2">
-        <b>FIRST NAME</b>
-        <div class="col-md-10 mt-2">
-            @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+
+        <div class="form-group  mb-2">
+            <div class="row">
+                <div class="col col-lg-8">
+                    <div class="form-group  mb-2">
+                        <div class="row">
+                            <div class="col col-sm-6">
+                                <b>FIRST NAME</b>
+                                <div class="col-md-10 mt-2">
+                                    @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col">
+
+                                <b>LAST NAME</b>
+                                <div class="col-md-10 mt-2">
+                                    @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col col-sm-6 mt-2">
+                                <b>PASSWORD</b>
+                                <div class="col-md-10 mt-2">
+                                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col mt-2">
+
+                                <b>CONFIRM PASSWORD</b>
+                                <div class="col-md-10 mt-2">
+                                    @Html.EditorFor(model => model.confirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <b>ROLES</b>
+                        <div class="col-md-10 mt-2">
+                            @Html.DropDownListFor(model => model.role, ViewBag.roles as IEnumerable<SelectListItem>, new { @class = "form-select" })
+                            @Html.ValidationMessageFor(model => model.role, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <b>BIRTH DAY</b>
+                        <div class="col-md-10 mt-2">
+                            @Html.TextBoxFor(model => model.datanasc, new { @class = "form-control", type = "date", Value = Model.datanasc?.ToString("yyyy-MM-dd") })
+                            @Html.ValidationMessageFor(model => model.datanasc, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group mb-2">
+                        <b>AGE</b>
+                        <div class="col-md-10 mt-2">
+                            @Html.EditorFor(model => model.age, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.age, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <div class="col col-sm">
+                            <input type="submit" value="SAVE" class="btn btn-success mt-2" />
+
+                        </div>
+
+
+                    </div>
+                    <br />
+                    <br />
+                </div>
+                <div class="col">
+
+                    <b>PHOTO</b>
+                    <div class="col-md-10 mt-2">
+                        <input type="file" id="fich" name="fich" class="form-control" onchange="previewImage(event)" />
+                        @Html.ValidationMessageFor(model => model.fotopath, "", new { @class = "text-danger client-photo" })
+                        <!-- Image preview -->
+                        <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 20em; height: 8em; margin-top: 10px;" />
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="form-group mb-2">
-        <b>LAST NAME</b>
-        <div class="col-md-10 mt-2">
-            @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group mb-2">
-        <b>PASSWORD</b>
-        <div class="col-md-10 mt-2">
-            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group mb-2">
-        <b>ROLES</b>
-        <div class="col-md-10 mt-2">
-            @Html.DropDownListFor(model => model.role, ViewBag.roles as SelectList, new { @class = "form-select" , @Value=Model.role })
-            @Html.ValidationMessageFor(model => model.role, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group mb-2">
-        <b>BIRTH DAY</b>
-        <div class="col-md-10 mt-2">
-            @Html.TextBoxFor(model => model.datanasc, new { @class = "form-control", type = "date", Value = Model.datanasc?.ToString("yyyy-MM-dd") })
-            @Html.ValidationMessageFor(model => model.datanasc, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-    <div class="form-group mb-2">
-        <b>AGE</b>
-        <div class="col-md-10 mt-2">
-            @Html.EditorFor(model => model.age, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.age, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-    <div class="form-group mb-2">
-        <b>PHOTO</b>
-        <div class="col-md-10 mt-2">
-            <input type="file" id="fich" name="fich" class="form-control" onchange="previewImage(event)" />
-            @Html.ValidationMessageFor(model => model.fotopath, "", new { @class = "text-danger" })
-            <!-- Image preview -->
-            <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 40em; height: auto; margin-top: 10px;" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-success mt-2" />
-        </div>
-    </div>
-</div>
 }
+<button type="button" class="btn btn-info mt-2" onclick="location.href='@Url.Action("List_of_clients", "Clients")'">BACK TO LIST</button>
 
-<hr />
 
-
-<div>
-    @Html.ActionLink("Back to List", "List_of_clients", "Clients")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+
 }
 
 @section PreviewImage
@@ -111,8 +140,8 @@
 }
 <style>
     .client-photo img {
-        width: 70px;
-        height: 70px;
+        width: 20em;
+        height: 20em;
     }
 
     /*    .actions {
@@ -125,8 +154,7 @@
     }
 
     .gradient-bg {
-        background: linear-gradient(to right, #00c6ff, #0072ff); /* Adjust colors and direction as needed */
-        color: white; /* Optional: text color */
-        padding: 20px; /* Optional: padding inside the div */
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        padding: 20px;
     }
 </style>
